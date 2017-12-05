@@ -16,11 +16,14 @@ namespace BE
         public int NumberOfContract //property for contractID field
         {
             get { return contractId; }
-            set
+            private set
             {
-                serialCounter++;
-                contractId = serialCounter;
+                contractId = value;
             }
+        }
+        public Contract()
+        {
+            NumberOfContract = ++serialCounter;
         }
         public string NunnyID { get; set; }
         public string MotherID{ get; set; }
@@ -46,8 +49,8 @@ namespace BE
         //    }
         //}
         public Dictionary<DayOfWeek, KeyValuePair<int, int>> WorkTime { get; set; }
-        public string DateStart { get; set; }
-        public string DateEnd { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
         public float HoursOfContractMonth { get; set; }
 
         //ToString returns string with info about the contract

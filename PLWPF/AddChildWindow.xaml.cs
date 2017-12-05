@@ -33,6 +33,7 @@ namespace PLWPF
             MessageBox.Show(child.ToString());
             child = new BE.Child();
             DataContext = child;
+            this.Close();
         }
 
     }

@@ -25,7 +25,103 @@ namespace PLWPF
         {
             InitializeComponent();
             bl = FactoryBL.getBL();
+            initFordebugs();
         }
+
+        private void initFordebugs()
+        {
+            bl.AddMother(new BE.Mother
+            {
+                ID = "123",
+                Lastname = "Sarah",
+                FirstName = "Imeinu",
+                Tel = "01233477",
+                Address = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 21, Street = "Herzl", ZipCode = "Nj208" },
+                HomePhone = "67767678",
+                BabbySitterAdress = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 12, Street = "Herzl", ZipCode = "Nj208" },
+                Workhours = new Dictionary<DayOfWeek, KeyValuePair<int, int>>
+                {
+                    {DayOfWeek.Sunday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Monday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Tuesday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Wednesday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Thursday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Friday,new KeyValuePair<int,int> (0700,1900) },
+                },
+                WeeklyPayment = false
+            });
+            bl.AddNanny(new BE.Nanny
+            {
+                ID = "208493965",
+                Lastname = "bar",
+                FirstName = "chaya",
+                Tel = "025800856",
+                Address = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 22, Street = "Herzl", ZipCode = "Nj208" },
+                NannyD_of_B = new DateTime(1988, 2, 2),
+                IsElevator = true,
+                YearsOfExperience = 3,
+                MaxKids = 5,
+                MinimunmAge = 3,
+                MaximumAge = 24,
+                RateforHour = 30,
+                RateforMonth = 5000,
+                AvailableTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>
+                {
+                    {DayOfWeek.Sunday,new KeyValuePair<int,int> (0600,1900) },
+                    {DayOfWeek.Monday,new KeyValuePair<int,int> (0600,1900) },
+                    {DayOfWeek.Tuesday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Wednesday,new KeyValuePair<int,int> (0700,2000) },
+                    {DayOfWeek.Thursday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Friday,new KeyValuePair<int,int> (0700,1900) },
+                },
+                IsBasedonTMTorEdu = true,
+                Recommendation = "good",
+                NannyBank = new BE.BankAccount
+                {
+                     AccountNumber=222,
+                     BankAdress=new BE.Address
+                     {
+                          City="d",
+                           Country="dd",
+                            Number=3,
+                             Street="gf",
+                              ZipCode="234"
+                     }
+                }
+            });
+            bl.AddChild(new BE.Child
+            {
+                 ChildID="6789",
+                  ChildName="chanan",
+                   DateOfBirth=new DateTime(2017, 8,1),
+                    IsSpacialNeeds=false,
+                     MotherID= "123"
+            });
+            bl.AddContract(new BE.Contract
+            {
+                NunnyID = "208493965",
+                MotherID = "123",
+                ChildID = "6789",
+                IsInterview = true,
+                IsContract = true,
+                RateforHour = 35,
+                RateforMonth = 4500,
+                IsMorechilds = false,
+                WorkTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>
+                {
+                    {DayOfWeek.Sunday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Monday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Tuesday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Wednesday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Thursday,new KeyValuePair<int,int> (0700,1900) },
+                    {DayOfWeek.Friday,new KeyValuePair<int,int> (0700,1900) },
+                },
+                DateStart = new DateTime(2017, 07, 21),
+                DateEnd = new DateTime(2017, 09, 21),
+                HoursOfContractMonth = 50
+            });
+        }
+
         private void AboutNannyButton_Click(object sender, RoutedEventArgs e)
         {
             Window NannyWindow = new NannyWindow();

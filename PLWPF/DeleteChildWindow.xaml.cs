@@ -21,20 +21,42 @@ namespace PLWPF
     /// </summary>
     public partial class DeleteChildWindow : Window
     {
+        IBL bl;
         BE.Child child = new BE.Child();
         public DeleteChildWindow()
         {
             InitializeComponent();
-            DataContext = child.ChildID;
+            child = new Child();
+            bl = FactoryBL.getBL();
+            this.grid1.DataContext = child;
+            this.childIDComboBox.ItemsSource = from z in bl.GetChilds()
+                                               select z.ChildID;
+        }
+
+        public void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string id = childIDComboBox.SelectedValue.ToString();
+                child = this.bl.GetChildByID(id);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Incorrect input");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DeleteChildButton_Click(object sender, RoutedEventArgs e)
         {
-            child = BL.FactoryBL.getBL().GetChildByID(child.ChildID);
             BL.FactoryBL.getBL().DeleteChild(child);
             MessageBox.Show("the Child is deleted");
             child = new BE.Child();
             DataContext = child.ChildID;
+            this.Close();
         }
     }
 }

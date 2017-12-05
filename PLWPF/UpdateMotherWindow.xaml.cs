@@ -58,6 +58,7 @@ namespace PLWPF
                 MessageBox.Show(mother.ToString());
                 mother = new BE.Mother();
                 DataContext = mother;
+                this.Close();
             }
             catch (Exception ex)
             {

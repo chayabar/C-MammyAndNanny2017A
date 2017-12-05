@@ -76,6 +76,7 @@ namespace PLWPF
             MessageBox.Show(nanny.ToString());
             nanny = new BE.Nanny();
             DataContext = nanny;
+            this.Close();
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
@@ -85,7 +86,6 @@ namespace PLWPF
             {
                 nanny.AvailableTime = availableTime.Mystuff;
             }
-
         }
 
         private void AddAddress_Click(object sender, RoutedEventArgs e)

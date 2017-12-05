@@ -33,6 +33,7 @@ namespace PLWPF
             MessageBox.Show("the nanny is deleted");
             nanny = new BE.Nanny();
             DataContext = nanny.ID;
+            this.Close();
         }
     }
 }

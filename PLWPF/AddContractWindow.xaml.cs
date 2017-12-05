@@ -23,13 +23,14 @@ namespace PLWPF
     {
         string id;
         IBL bl;
-        Mother mother = new Mother();
-        Child child = new Child();
-        Nanny nanny = new Nanny();
-        BE.Contract contract = new BE.Contract();
+        Mother mother;
+        Child child ;
+        Nanny nanny ;
+        BE.Contract contract;
         public AddContractWindow()
         {
             InitializeComponent();
+            contract = new Contract();
             contract.IsInterview = true;
             bl = FactoryBL.getBL();
             DataContext = contract;
@@ -44,6 +45,8 @@ namespace PLWPF
                 mother = this.bl.GetMotherByID(id);
                 this.childIDComboBox.ItemsSource = from z in bl.GetChildsByMother(mother)
                                                    select z.ChildID;
+                contract.MotherID = id;
+                contract.WorkTime = mother.Workhours;
             }
             catch (FormatException)
             {
@@ -61,11 +64,12 @@ namespace PLWPF
             {
                 id = childIDComboBox.SelectedValue.ToString();
                 child = this.bl.GetChildByID(id);
-                List<Nanny> list1 =  bl.DistanceNannys(mother);
+                List<Nanny> list1 = bl.AvailableNannys(mother, child); //bl.DistanceNannys(mother);
                 List<Nanny> list2 = bl.AvailableNannys(mother, child);
                 List<Nanny> list3 = (list1.Intersect(list2)).ToList();
                 this.nunnyIDComboBox.ItemsSource = from z in list3
                                                    select z.ID;
+                contract.ChildID = id;
             }
             catch (FormatException)
             {
@@ -84,6 +88,7 @@ namespace PLWPF
                 id = nunnyIDComboBox.SelectedValue.ToString();
                 nanny = this.bl.GetNannyByID(id);
                 MessageBox.Show(nanny.ToString());
+                contract.NunnyID = id;
             }
             catch (FormatException)
             {
@@ -101,6 +106,8 @@ namespace PLWPF
             MessageBox.Show(contract.ToString());
             contract = new BE.Contract();
             DataContext = contract;
+            this.Close();
         }
-    }
+
+      }
 }

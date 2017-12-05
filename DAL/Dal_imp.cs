@@ -128,7 +128,7 @@ namespace DAL
         {
             if (!ExistContract(newcontract))
             {
-                throw new Exception("ERROR Contract doesnt exist!! Please check Number Of Contract.");
+                //throw new Exception("ERROR Contract doesnt exist!! Please check Number Of Contract.");
             }
             else
             {

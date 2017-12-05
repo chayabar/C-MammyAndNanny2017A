@@ -39,6 +39,7 @@ namespace BL
 
 
         List<Nanny> AvailableNannys(Mother mother, Child child);
+        Contract GetContractByID(int id);
         bool IsAvailableNanny(Mother mother, Nanny nanny);
         List<Nanny> DistanceNannys(Mother mother);
         List<Child> ChildsWithoutNannys();

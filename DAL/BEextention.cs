@@ -11,7 +11,7 @@ namespace DAL
     {
         internal static Nanny NannyDeepClone(this Nanny source)
         {
-            return new Nanny
+            Nanny nanny= new Nanny
             {
                 ID = source.ID,
                 Lastname = source.Lastname,
@@ -31,10 +31,11 @@ namespace DAL
                 Recommendation = source.Recommendation,
                 NannyBank = source.NannyBank
             };
+            return nanny;
         }
         internal static Mother MotherDeepClone(this Mother source)
         {
-            return new Mother
+            Mother mother= new Mother
             {
                 ID = source.ID,
                 Lastname = source.Lastname,
@@ -46,10 +47,11 @@ namespace DAL
                 Workhours = new Dictionary<DayOfWeek, KeyValuePair<int, int>>(source.Workhours),
                 WeeklyPayment= source.WeeklyPayment
             };
+            return mother;
         }
         internal static Child ChildDeepClone(this Child source)
         {
-            return new Child
+            Child child=new Child
             {
                 ChildID = source.ChildID,
                 MotherID = source.MotherID,
@@ -57,12 +59,12 @@ namespace DAL
                 DateOfBirth = source.DateOfBirth,
                 IsSpacialNeeds = source.IsSpacialNeeds
             };
+            return child;
         }
         internal static Contract ContractDeepClone(this Contract source)
         {
-            return new Contract
+            Contract contract= new Contract
             {
-                NumberOfContract = source.NumberOfContract,
                 NunnyID=source.NunnyID,
                 MotherID=source.MotherID,
                 ChildID = source.ChildID,
@@ -76,6 +78,7 @@ namespace DAL
                 DateEnd = source.DateEnd,
                 HoursOfContractMonth = source.HoursOfContractMonth
             };
+            return contract;
         }
     }
 }

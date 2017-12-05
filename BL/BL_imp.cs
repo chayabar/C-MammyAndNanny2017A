@@ -31,7 +31,7 @@ namespace BL
         public void AddContract(Contract newcontract)
         {
             //check if nanny exist in DataSource
-            if (!DataSource.Nannys.Exists(n => n.ID == newcontract.NunnyID))
+            if (!(DataSource.Nannys.Exists(n => n.ID == newcontract.NunnyID)))
             {
                 throw new Exception("Nanny doesnt exist");
             }
@@ -339,6 +339,12 @@ namespace BL
         {
             Child child=DS.DataSource.Childs.Find(x => x.ChildID == id);
             return child;
+        }
+
+        public Contract GetContractByID(int id)
+        {
+            Contract contract = DS.DataSource.Contracts.Find(x => x.NumberOfContract == id);
+            return contract;
         }
     }
 }

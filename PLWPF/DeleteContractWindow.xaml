@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
         mc:Ignorable="d"
-        Title="DeleteContractWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="DeleteContractWindow" Height="350" Width="525" FontSize="20">
+    <Grid x:Name="grid1" Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Enter your Number Of Contract:"  Margin="3"  Grid.Column="0"/>
+        <ComboBox x:Name="contractIDComboBox"  SelectionChanged="idCombobox_SelectionChanged" ItemsSource="{Binding NumberOfContract}" Grid.Row="0" Margin="3"  Grid.Column="1"/>
+        <Button Content="Delete" Grid.Column="0"  Margin="3" Grid.Row="1" Grid.ColumnSpan="2" Click="DeleteContractButton_Click"/>
     </Grid>
 </Window>

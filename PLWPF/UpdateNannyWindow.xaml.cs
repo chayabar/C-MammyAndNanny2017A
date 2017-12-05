@@ -59,6 +59,7 @@ namespace PLWPF
                 MessageBox.Show(nanny.ToString());
                 nanny = new BE.Nanny();
                 DataContext = nanny;
+                this.Close();
             }
             catch (Exception ex)
             {

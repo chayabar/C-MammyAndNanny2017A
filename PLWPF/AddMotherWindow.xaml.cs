@@ -32,6 +32,7 @@ namespace PLWPF
             MessageBox.Show(mother.ToString());
             mother = new BE.Mother();
             DataContext = mother;
+            this.Close();
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
         {

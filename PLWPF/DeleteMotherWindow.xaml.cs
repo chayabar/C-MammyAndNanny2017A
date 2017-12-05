@@ -34,6 +34,7 @@ namespace PLWPF
             MessageBox.Show("the mother is deleted");
             mother = new BE.Mother();
             DataContext = mother.ID;
+            this.Close();
         }
     }
 }

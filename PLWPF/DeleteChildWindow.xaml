@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PLWPF"
         mc:Ignorable="d"
         Title="DeleteChildWindow"  Height="350" Width="525" FontSize="20">
-    <Grid>
+    <Grid x:Name="grid1" Margin="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Enter your child ID:"  Margin="3"  Grid.Column="0"/>
-        <TextBox x:Name="IDTextBox" Grid.Column="1" Margin="3"  Text="{Binding ChildID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+        <ComboBox x:Name="childIDComboBox"  SelectionChanged="idCombobox_SelectionChanged" ItemsSource="{Binding ChildID}" Grid.Row="0" Margin="3"  Grid.Column="1"/>
         <Button Content="Delete" Grid.Column="0"  Margin="3" Grid.Row="1" Grid.ColumnSpan="2" Click="DeleteChildButton_Click"/>
     </Grid>
 </Window>
