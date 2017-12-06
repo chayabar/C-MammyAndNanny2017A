@@ -15,7 +15,7 @@ using BL;
 using BE;
 namespace PLWPF
 {
-    /// <update mother>
+    /// <summary>
     /// Interaction logic for UpdateMotherWindow.xaml
     /// </summary>
     public partial class UpdateMotherWindow : Window
