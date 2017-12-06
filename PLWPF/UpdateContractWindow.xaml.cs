@@ -44,6 +44,8 @@ namespace PLWPF
                 mother = this.bl.GetMotherByID(id);
                 this.childIDComboBox.ItemsSource = from z in bl.GetChildsByMother(mother)
                                                    select z.ChildID;
+                                contract.MotherID = id;
+
             }
             catch (FormatException)
             {
