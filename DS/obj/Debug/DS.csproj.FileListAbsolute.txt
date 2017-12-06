@@ -6,3 +6,11 @@ C:\Users\owner\Downloads\סדנא C\מתוקן\Mammy_and_Nanny\DS\obj\Debug\DS.c
 C:\Users\owner\Downloads\סדנא C\מתוקן\Mammy_and_Nanny\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
 C:\Users\owner\Downloads\סדנא C\מתוקן\Mammy_and_Nanny\DS\obj\Debug\DS.dll
 C:\Users\owner\Downloads\סדנא C\מתוקן\Mammy_and_Nanny\DS\obj\Debug\DS.pdb
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\bin\Debug\DS.dll
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\bin\Debug\DS.pdb
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\bin\Debug\BE.dll
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\bin\Debug\BE.pdb
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\obj\Debug\DS.dll
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\DS\obj\Debug\DS.pdb

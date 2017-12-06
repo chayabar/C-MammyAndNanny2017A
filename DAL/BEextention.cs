@@ -65,6 +65,7 @@ namespace DAL
         {
             Contract contract= new Contract
             {
+                NumberOfContract=source.NumberOfContract,
                 NunnyID=source.NunnyID,
                 MotherID=source.MotherID,
                 ChildID = source.ChildID,

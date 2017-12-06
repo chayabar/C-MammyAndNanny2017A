@@ -16,7 +16,7 @@ namespace BE
         public int NumberOfContract //property for contractID field
         {
             get { return contractId; }
-            private set
+            set
             {
                 contractId = value;
             }
