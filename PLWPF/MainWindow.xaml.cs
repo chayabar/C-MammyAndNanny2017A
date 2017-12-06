@@ -33,7 +33,7 @@ namespace PLWPF
             bl.AddMother(new BE.Mother
             {
                 ID = "123",
-                Lastname = "Sarah",
+                Lastname = "Sara",
                 FirstName = "Imeinu",
                 Tel = "01233477",
                 Address = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 21, Street = "Herzl", ZipCode = "Nj208" },
