@@ -44,7 +44,7 @@ namespace PLWPF
                 mother = this.bl.GetMotherByID(id);
                 this.childIDComboBox.ItemsSource = from z in bl.GetChildsByMother(mother)
                                                    select z.ChildID;
-                                contract.MotherID = id;
+                contract.MotherID = id;
 
             }
             catch (FormatException)
@@ -63,29 +63,9 @@ namespace PLWPF
             {
                 id = childIDComboBox.SelectedValue.ToString();
                 child = this.bl.GetChildByID(id);
-                List<Nanny> list1 = bl.DistanceNannys(mother);
-                List<Nanny> list2 = bl.AvailableNannys(mother, child);
-                List<Nanny> list3 = (list1.Intersect(list2)).ToList();
-                this.nunnyIDComboBox.ItemsSource = from z in list3
-                                                   select z.ID;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Incorrect input");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        public void nunnyIDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                id = nunnyIDComboBox.SelectedValue.ToString();
-                nanny = this.bl.GetNannyByID(id);
-                MessageBox.Show(nanny.ToString());
+                contract = bl.GetContractByChild(child);
+                //this.nunnyIDTextBox.DataContext = contract.NunnyID;
+                DataContext = contract;
             }
             catch (FormatException)
             {

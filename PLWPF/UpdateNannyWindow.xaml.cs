@@ -51,6 +51,17 @@ namespace PLWPF
                 MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void updateAddress_Click(object sender, RoutedEventArgs e)
+        {
+            Address address = new Address();
+            BE.Address myaddress = nanny.Address;
+            address.DataContext = myaddress;
+            bool? result = address.ShowDialog();
+            if (result != false)
+            {
+                nanny.Address = address.myaddress;
+            }
+        }
         private void UpdateNannyButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -65,6 +76,7 @@ namespace PLWPF
             {
                 MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
         }
     }
 }

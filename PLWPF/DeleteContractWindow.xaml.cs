@@ -39,6 +39,7 @@ namespace PLWPF
             {
                 int id = (int)contractIDComboBox.SelectedValue;
                 contract = this.bl.GetContractByID(id);
+                MessageBox.Show(contract.ToString());
             }
             catch (FormatException)
             {

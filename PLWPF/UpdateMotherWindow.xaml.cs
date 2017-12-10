@@ -39,6 +39,7 @@ namespace PLWPF
                 id = iDComboBox.SelectedValue.ToString();
                 mother = this.bl.GetMotherByID(id);
                 this.grid1.DataContext = mother;
+                
 
             }
             catch (FormatException)

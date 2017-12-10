@@ -53,21 +53,10 @@
             <TextBox x:Name="telTextBox" Grid.Column="1" Margin="3" Grid.Row="4" Text="{Binding Tel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
             <Label Content="Years Of Experience:" Grid.Column="0"  Margin="3" Grid.Row="5" />
             <TextBox x:Name="yearsOfExperienceTextBox" Grid.Column="1" Margin="3" Grid.Row="5" Text="{Binding YearsOfExperience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
-
             <Label Content="Address" Grid.Column="0"  Margin="3" Grid.ColumnSpan="2" Grid.Row="6" />
-            <Label Content="Street:" Grid.Column="0"  Margin="3" Grid.Row="7" />
-            <TextBox x:Name="streetTextBox" Grid.Column="1" Margin="3" Grid.Row="7" Text="{Binding Address.Street, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
-            <Label Content="Number:" Grid.Column="0"  Margin="3" Grid.Row="8" />
-            <TextBox x:Name="numberTextBox" Grid.Column="1" Margin="3" Grid.Row="8" Text="{Binding Address.Number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
-            <Label Content="City:" Grid.Column="0"  Margin="3" Grid.Row="9" />
-            <TextBox x:Name="cityTextBox" Grid.Column="1" Margin="3" Grid.Row="9" Text="{Binding Address.City, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
-            <Label Content="Country:" Grid.Column="0"  Margin="3" Grid.Row="10" />
-            <TextBox x:Name="countryTextBox" Grid.Column="1" Margin="3" Grid.Row="10" Text="{Binding Address.Country, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
-            <Label Content="Zip Code:" Grid.Column="0"  Margin="3" Grid.Row="11" />
-            <TextBox x:Name="zipCodeTextBox" Grid.Column="1" Margin="3" Grid.Row="11" Text="{Binding Address.ZipCode, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
+            <Button x:Name="updateAddress" Content="Edit" Grid.Column="1"  Margin="3" Grid.Row="6" Click="updateAddress_Click"/>
             <Label Content="Is Elevator ?" Grid.Column="0"  Margin="3" Grid.Row="12" />
             <CheckBox x:Name="isElevatorCheckBox" Content="" Grid.Column="1" Margin="3" Grid.Row="12" IsChecked="{Binding IsElevator, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
-
             <Label Content="Rate for Hour:" Grid.Column="0"  Margin="3" Grid.Row="13" />
             <TextBox x:Name="rateforHourTextBox" Grid.Column="1" Margin="3" Grid.Row="13" Text="{Binding RateforHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <Label Content="Rate for Month:" Grid.Column="0"  Margin="3" Grid.Row="14" />

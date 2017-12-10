@@ -34,7 +34,7 @@
                 <Label  Grid.Row="1" Margin="3"  Grid.Column="0" Content="Child ID:"/>
                 <ComboBox x:Name="childIDComboBox"  Grid.Column="1" Margin="3" Grid.Row="1" SelectionChanged="childIDComboBox_SelectionChanged" ItemsSource="{Binding childID}"/>
                 <Label  Grid.Row="2" Margin="3"  Grid.Column="0" Content="Nunny ID:"/>
-                <ComboBox x:Name="nunnyIDComboBox"    SelectionChanged="nunnyIDComboBox_SelectionChanged" ItemsSource="{Binding NunnyID}" Grid.Row="2" Margin="3"   Grid.Column="1"/>
+                <TextBox x:Name="nunnyIDTextBox"     Text="{Binding NunnyID, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3"   Grid.Column="1"/>
                 <Label  Grid.Row="3" Margin="3"  Grid.Column="0" Content="Date Start:"/>
                 <DatePicker x:Name="dateStartDatePicker"   SelectedDate="{Binding AvailableFrom, Mode=TwoWay}"    Grid.Row="3" Margin="3"   Grid.Column="1"/>
                 <Label  Grid.Row="4" Margin="3"  Grid.Column="0" Content="Date End:"/>
