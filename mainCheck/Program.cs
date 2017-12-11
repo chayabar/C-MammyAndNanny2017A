@@ -22,7 +22,7 @@ namespace mainCheck
                 HomePhone = "0588889999",
                 BabbySitterAdress = new Address { Number = 2, Street = "4", City = "5", ZipCode = "6", Country = "7" },
                 Workhours = new Dictionary<DayOfWeek, KeyValuePair<int, int>> { },
-                WeeklyPayment = true
+                MonthPayment = true
             };
             DateTime date1 = new DateTime(2010, 1, 1, 8, 0, 15);
             DateTime date2 = new DateTime(2010, 8, 18, 13, 30, 30);

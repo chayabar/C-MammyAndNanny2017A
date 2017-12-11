@@ -36,9 +36,9 @@ namespace PLWPF
                 Lastname = "Sarah",
                 FirstName = "Imeinu",
                 Tel = "01233477",
-                Address = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 21, Street = "Herzl", ZipCode = "Nj208" },
+                Address = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 11, Street = "beit hadfus", ZipCode = "208" },
                 HomePhone = "67767678",
-                BabbySitterAdress = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 12, Street = "Herzl", ZipCode = "Nj208" },
+                BabbySitterAdress = new BE.Address { City = "Jerusalem", Country = "Israel", Number = 11, Street = "beit hadfus", ZipCode = "208" },
                 Workhours = new Dictionary<DayOfWeek, KeyValuePair<int, int>>
                 {
                     {DayOfWeek.Sunday,new KeyValuePair<int,int> (0700,1900) },
@@ -48,7 +48,7 @@ namespace PLWPF
                     {DayOfWeek.Thursday,new KeyValuePair<int,int> (0700,1900) },
                     {DayOfWeek.Friday,new KeyValuePair<int,int> (0700,1900) },
                 },
-                WeeklyPayment = false
+                MonthPayment = false
             });
             bl.AddNanny(new BE.Nanny
             {
@@ -81,10 +81,10 @@ namespace PLWPF
                      AccountNumber=222,
                      BankAdress=new BE.Address
                      {
-                          City="d",
-                           Country="dd",
-                            Number=3,
-                             Street="gf",
+                          City="jerusalem",
+                           Country="israel",
+                            Number=7,
+                             Street="beit hadfus",
                               ZipCode="234"
                      }
                 }
@@ -141,6 +141,11 @@ namespace PLWPF
         {
             Window ContractWindow = new ContractWindow();
             ContractWindow.Show();
+        }
+        private void GroupingButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window Grouping = new Grouping();
+            Grouping.Show();
         }
     }
 }

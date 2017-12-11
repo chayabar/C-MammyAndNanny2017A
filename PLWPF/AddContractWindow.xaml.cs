@@ -26,7 +26,8 @@ namespace PLWPF
         Mother mother;
         Child child ;
         Nanny nanny ;
-        BE.Contract contract;
+        Contract contract;
+        bool monthPayment;
         public AddContractWindow()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace PLWPF
                 this.childIDComboBox.ItemsSource = from z in bl.GetChildsByMother(mother)
                                                    select z.ChildID;
                 contract.MotherID = id;
+                monthPayment = mother.MonthPayment;
                 contract.WorkTime = mother.Workhours;
             }
             catch (FormatException)
@@ -64,7 +66,7 @@ namespace PLWPF
             {
                 id = childIDComboBox.SelectedValue.ToString();
                 child = this.bl.GetChildByID(id);
-                List<Nanny> list1 = bl.AvailableNannys(mother, child); //bl.DistanceNannys(mother);
+                List<Nanny> list1 = bl.DistanceNannys(mother);
                 List<Nanny> list2 = bl.AvailableNannys(mother, child);
                 List<Nanny> list3 = (list1.Intersect(list2)).ToList();
                 this.nunnyIDComboBox.ItemsSource = from z in list3
@@ -89,6 +91,16 @@ namespace PLWPF
                 nanny = this.bl.GetNannyByID(id);
                 MessageBox.Show(nanny.ToString());
                 contract.NunnyID = id;
+                if (monthPayment)
+                {
+                    contract.RateforHour = 0;
+                    contract.RateforMonth =nanny.RateforMonth;
+                }
+                else
+                {
+                    contract.RateforHour = nanny.RateforHour;
+                    contract.RateforMonth = 0;
+                }
             }
             catch (FormatException)
             {

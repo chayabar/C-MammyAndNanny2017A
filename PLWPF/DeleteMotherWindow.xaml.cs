@@ -11,20 +11,45 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
+using BE;
 
 namespace PLWPF
 {
     /// <summary>
     /// Interaction logic for DeleteMotherWindow.xaml
     /// </summary>
+    
     public partial class DeleteMotherWindow : Window
     {
-
-        BE.Mother mother = new BE.Mother();
+        IBL bl;
+        BE.Mother mother;
         public DeleteMotherWindow()
         {
             InitializeComponent();
-            DataContext = mother.ID;
+            mother = new Mother();
+            bl = FactoryBL.getBL();
+            this.grid1.DataContext = mother;
+            this.IDComboBox.ItemsSource = from z in bl.GetMothers()
+                                               select z.ID;
+            
+        }
+
+        public void idCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string id = IDComboBox.SelectedValue.ToString();
+                mother = this.bl.GetMotherByID(id);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Incorrect input");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DeleteMotherButton_Click(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="380" Width="525">
     <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="525" MinHeight="350">
         <Grid.Background>
             <ImageBrush/>
@@ -16,15 +16,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="AboutNanny" Content="Nanny"  Margin="10" FontSize="30" Click="AboutNannyButton_Click" FontFamily="Freestyle Script" Grid.Row="1"/>
+        <Button x:Name="AboutNanny" Content="Nanny"  Margin="3" FontSize="30" Click="AboutNannyButton_Click" FontFamily="Freestyle Script" Grid.Row="1"/>
 
-        <Button x:Name="AboutMother" Content="Mother" Margin="10" FontSize="30" Click="AboutMotherButton_Click" FontFamily="Freestyle Script" Grid.Row="2"/>
-
-        <Button x:Name="AboutChild" Content="Child" Margin="10" FontSize="30" Grid.Row="3" Click="AboutChildButton_Click" FontFamily="Freestyle Script" />
-
-        <Button x:Name="AboutContract" Content="Contract" Margin="10" FontSize="30" Grid.Row="4" Click="AboutContractButton_Click" FontFamily="Freestyle Script" />
+        <Button x:Name="AboutMother" Content="Mother" Margin="3" FontSize="30" Click="AboutMotherButton_Click" FontFamily="Freestyle Script" Grid.Row="2"/>
+        <Button x:Name="AboutChild" Content="Child" Margin="3" FontSize="30" Grid.Row="3" Click="AboutChildButton_Click" FontFamily="Freestyle Script" />
+        <Button x:Name="AboutContract" Content="Contract" Margin="3" FontSize="30" Grid.Row="4" Click="AboutContractButton_Click" FontFamily="Freestyle Script" />
+        <Button x:Name="Grouping" Content="Grouping" Margin="3" FontSize="30" Grid.Row="5" Click="GroupingButton_Click" FontFamily="Freestyle Script" />
         <Label Content="Welcome to Nanny for you"  FontSize="40" HorizontalAlignment="Left" Margin="0,16,0,0" VerticalAlignment="Top"  FontFamily="Freestyle Script"/>
         <Image HorizontalAlignment="Left" Height="90" Margin="345,0,-0.6,0" VerticalAlignment="Top"  Source="images/$_35.JPG" Stretch="Fill" Width="174"  />
 

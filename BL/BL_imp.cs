@@ -51,22 +51,16 @@ namespace BL
             {
                 throw new Exception("Child too young");
             }
-            /*Mother mam = DataSource.Mothers.Find(n => n.ID == newcontract.MotherID);
-            float sumhours = 0;
-            foreach (var item in AvailableTime)
-            {
-                result += "day: " + item.Key + "   \t";
-                result += "hours " + item.Value.Key + " - " + item.Value.Value + '\n';
-            }
-            if (mam.WeeklyPayment)
-            {
-                float sum= newcontract.RateforHour
-            }*/
             //check if the nanny not full
             Nanny nanny = DataSource.Nannys.Find(n => n.ID == newcontract.NunnyID);
             int numcontract = DataSource.Contracts.FindAll(n => n.NunnyID == newcontract.NunnyID).Count;
             if (numcontract == nanny.MaxKids)
                 throw new Exception("this nanny is full");
+            if (newcontract.IsMorechilds)
+            {
+                newcontract.RateforMonth = (float)0.98 * (newcontract.RateforMonth);
+                newcontract.RateforHour = (float)0.98 * (newcontract.RateforHour);
+            }
             Idal mydal = FactoryDal.getDal();  //send to DAL
             mydal.AddContract(newcontract);
         }
@@ -203,7 +197,7 @@ namespace BL
                 Leg leg = route.Legs.First();
                 if (leg.Distance.Value<1000)
                 {
-                    distanceNannys.Add(nanny);   //לשאול את המרצה אם לעשות העתקה עמוקה (אם כן אז בכל הפונ
+                    distanceNannys.Add(nanny);   
                 }
             }
             return distanceNannys;
@@ -297,13 +291,6 @@ namespace BL
                                                            group nanny by (String)(nanny.MinimunmAge+"-"+nanny.MaximumAge);
             return NannysByRangeChildAge.ToList();
         }
-
-        //public List<IGrouping<int, Nanny>> GroupNannysByChildAge()//group the nunny by ages
-        //{
-        //    IEnumerable<IGrouping<String, Nanny>> NannysByChildAge = from nanny in DS.DataSource.Nannys
-        //                                                             group nanny by (int)(nanny.MinimunmAge + "-" + nanny.MaximumAge);
-        //    return NannysByChildAge.ToList();
-        //}
 
         public List<Nanny> NannysWithTMT()//return all nannys that based on TMT
         {

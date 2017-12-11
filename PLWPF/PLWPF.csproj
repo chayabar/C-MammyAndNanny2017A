@@ -75,6 +75,9 @@
     <Compile Include="ChildWindow.xaml.cs">
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ContractDistance.xaml.cs">
+      <DependentUpon>ContractDistance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ContractWindow.xaml.cs">
       <DependentUpon>ContractWindow.xaml</DependentUpon>
     </Compile>
@@ -87,11 +90,23 @@
     <Compile Include="DeleteMotherWindow.xaml.cs">
       <DependentUpon>DeleteMotherWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Grouping.xaml.cs">
+      <DependentUpon>Grouping.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MotherWindow.xaml.cs">
       <DependentUpon>MotherWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NannyWithTMT.xaml.cs">
+      <DependentUpon>NannyWithTMT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NannyByAddress.xaml.cs">
+      <DependentUpon>NannyByAddress.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NannyWindow.xaml.cs">
       <DependentUpon>NannyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RangeChildAge.xaml.cs">
+      <DependentUpon>RangeChildAge.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateChildWindow.xaml.cs">
       <DependentUpon>UpdateChildWindow.xaml</DependentUpon>
@@ -133,6 +148,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ContractDistance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ContractWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeleteNannyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Grouping.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,7 +195,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NannyWithTMT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NannyByAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NannyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RangeChildAge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,9 +280,6 @@
     <Resource Include="images\images-1.jpeg" />
     <Resource Include="images\images.jpg" />
     <Resource Include="images\הורד.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\untitled.png" />

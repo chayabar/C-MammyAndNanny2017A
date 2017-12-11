@@ -23,7 +23,7 @@ namespace BE
             result += string.Format("Child ID:{0}\n", ChildID);
             result += string.Format("Mother ID:{0}\n", MotherID);
             result += string.Format("Child Name:{0}\n", ChildName);
-            result += string.Format("Date Of Birth:{0}\n", DateOfBirth);
+            result += string.Format("Date Of Birth:{0}\n", DateOfBirth.ToShortDateString());
             result += string.Format("Is child with Spacial Needs? {0}\n", IsSpacialNeeds);
             return result;
         }

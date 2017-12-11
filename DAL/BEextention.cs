@@ -45,7 +45,7 @@ namespace DAL
                 HomePhone = source.HomePhone,
                 BabbySitterAdress = source.BabbySitterAdress,
                 Workhours = new Dictionary<DayOfWeek, KeyValuePair<int, int>>(source.Workhours),
-                WeeklyPayment= source.WeeklyPayment
+                MonthPayment= source.MonthPayment
             };
             return mother;
         }

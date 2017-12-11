@@ -44,7 +44,7 @@
                 <Label  Grid.Row="6" Margin="3" Grid.Column="0" Content="Is Contract:"/>
                 <CheckBox x:Name="isContractCheckBox" VerticalAlignment="Center" Grid.Row="6" Margin="3" IsChecked="{Binding IsContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" Content=""/>
                 <Label  Grid.Row="7" Margin="3" Grid.Column="0" Content="Is Interview:"/>
-            <CheckBox x:Name="isInterviewCheckBox" VerticalAlignment="Center" Grid.Row="7" Margin="3" IsChecked="{Binding IsInterview, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" Content=""/>
+                <CheckBox x:Name="isInterviewCheckBox" VerticalAlignment="Center" Grid.Row="7" Margin="3" IsChecked="{Binding IsInterview, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" Content=""/>
                 <Label  Grid.Row="8" Margin="3" Grid.Column="0" Content="Is Morechilds:"/>
                 <CheckBox x:Name="isMorechildsCheckBox"  Grid.Row="8" Margin="3" IsChecked="{Binding IsMorechilds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1" Content=""/>
                 <Label  Grid.Row="9" Margin="3" Grid.Column="0" Content="Number Of Contract:"/>

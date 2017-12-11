@@ -47,7 +47,6 @@ namespace BL
         List<Contract> ContractWithCondition(Predicate<Contract> mycondition);
         int NumContractWithCondition(Predicate<Contract> mycondition);
         List<IGrouping<String, Nanny>> GroupNannysByRangeChildAge();
-        //List<IGrouping<int, Nanny>> GroupNannysByChildAge();
         List<IGrouping<String, Nanny>> GroupNannysByAddress();
         List<IGrouping<int, Contract>> GroupContractsByDistance();
         Contract GetContractByChild(Child child);

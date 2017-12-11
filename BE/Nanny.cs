@@ -25,7 +25,7 @@ namespace BE
             string result = "Nunny details:\n";
             result += "---------------------\n";
             result += base.ToString();
-            result += string.Format("Date of birth:{0}\n", NannyD_of_B);
+            result += string.Format("Date of birth:{0}\n", NannyD_of_B.ToShortDateString());
             result += string.Format("Years Of Experience:{0}\n", YearsOfExperience);
             result += string.Format("Number of maximum kids: {0}\n", MaxKids);
             result += string.Format("The minimum age of kids: {0}\n", MinimunmAge);
@@ -38,7 +38,7 @@ namespace BE
                 foreach (var item in AvailableTime)
                 {
                     result += "day: " + item.Key + "   \t";
-                    result += "hours " + item.Value.Key + " - " + item.Value.Value + '\n';
+                    result += "hours " + (item.Value.Key) / 100 + ":" + (item.Value.Key) % 100 + " - " + (item.Value.Value) / 100 + ":" + (item.Value.Value) % 100 + '\n';
                 }
             }
             result += string.Format("Is days off based on Tamat or Ministry of Education ?: {0}\n", IsBasedonTMTorEdu);

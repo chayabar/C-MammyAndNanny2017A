@@ -120,3 +120,13 @@ C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\PLWPF.cspro
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\PLWPF.csproj.CoreCompileInputs.cache
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\PLWPF.exe
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\PLWPF.pdb
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ContractDistance.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\Grouping.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyWithTMT.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyByAddress.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\RangeChildAge.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ContractDistance.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\Grouping.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyWithTMT.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyByAddress.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\RangeChildAge.baml

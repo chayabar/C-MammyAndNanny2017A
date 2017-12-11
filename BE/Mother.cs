@@ -15,7 +15,7 @@ namespace BE
 
         //dictionary, the key-day of the week, the value-contain key and value for start, end hours
         public Dictionary<DayOfWeek, KeyValuePair<int, int>> Workhours { get; set; }  
-        public bool WeeklyPayment{ get; set; }
+        public bool MonthPayment{ get; set; }
 
         //ToString returns string with info about mother
         public override string ToString()
@@ -27,9 +27,9 @@ namespace BE
             foreach (var item in Workhours)
             {
                 result += "day: " + item.Key + "   \t";
-                result += "hours " + item.Value.Key + " - " + item.Value.Value + '\n';
+                result += "hours " + (item.Value.Key)/100+":" + (item.Value.Key) % 100 + " - " + (item.Value.Value)/100+":" + (item.Value.Value) % 100+ '\n';
             }
-            result += "Is Weekly payment? " + WeeklyPayment;
+            result += "Is Weekly payment? " + MonthPayment;
             return result;
         }
     }

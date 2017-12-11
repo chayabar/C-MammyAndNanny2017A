@@ -43,7 +43,7 @@
             <Label Content="Tel:" Grid.Column="0"  Margin="3" Grid.Row="4" />
             <TextBox x:Name="telTextBox" Grid.Column="1"  Margin="3" Grid.Row="4" Text="{Binding Tel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
             <Label Content="Weekly Payment:" Grid.Column="0"  Margin="3" Grid.Row="5" />
-            <CheckBox x:Name="weeklyPaymentCheckBox" Content="" Grid.Column="1" Margin="3" Grid.Row="5" IsChecked="{Binding WeeklyPayment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+            <CheckBox x:Name="weeklyPaymentCheckBox" Content="" Grid.Column="1" Margin="3" Grid.Row="5" IsChecked="{Binding MonthPayment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
             <Label Content="Street:" Grid.Column="0"  Margin="3" Grid.Row="6" />
             <TextBox x:Name="streetTextBox" Grid.Column="1"  Margin="3" Grid.Row="6" Text="{Binding Address.Street, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
             <Label Content="Number:" Grid.Column="0"  Margin="3" Grid.Row="7" />

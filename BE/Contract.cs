@@ -21,6 +21,7 @@ namespace BE
                 contractId = value;
             }
         }
+    
         public Contract()
         {
             NumberOfContract = ++serialCounter;
@@ -33,21 +34,6 @@ namespace BE
         public float RateforHour { get; set; }
         public float RateforMonth { get; set; }
         public bool IsMorechilds { get; set; }
-        //public bool IsMorechilds
-        //{
-        //    get
-        //    {
-        //        return IsMorechilds;
-        //    }
-        //    set
-        //    {
-        //        IsMorechilds = value;
-        //        if (value == true)
-        //        {
-        //            RateforMonth = RateforMonth * (float)0.98;
-        //        }
-        //    }
-        //}
         public Dictionary<DayOfWeek, KeyValuePair<int, int>> WorkTime { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
@@ -69,10 +55,10 @@ namespace BE
             foreach (var item in WorkTime)  //loop over days in week
             {
                 result += "day: " + item.Key + "   \t";
-                result += "hours " + item.Value.Key + " - " + item.Value.Value + '\n';
+                result += "hours " + (item.Value.Key)/100+":" + (item.Value.Key) % 100 + " - " + (item.Value.Value)/100+":" + (item.Value.Value) % 100+ '\n';
             }
-            result += string.Format("Date of Start:{0}\n", DateStart);
-            result += string.Format("Date of End: {0}\n", DateEnd);
+            result += string.Format("Date of Start:{0}\n", DateStart.ToShortDateString());
+            result += string.Format("Date of End: {0}\n", DateEnd.ToShortDateString());
             result += string.Format("Hours Of Contract: {0}\n", HoursOfContractMonth);
             return result;
         }

@@ -8,19 +8,23 @@
         Title="ChildWindow" Height="300" Width="300">
     <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
 
         <Label Content=" child "  FontSize="50" HorizontalAlignment="Left" Margin="0,16,0,0" VerticalAlignment="Top"  FontFamily="Freestyle Script"/>
         <Image HorizontalAlignment="Right" Height="90" Margin="3" VerticalAlignment="Top"  Source="images/untitled.png"   />
 
-        <Button x:Name="AddChildButton" Content="Add Child" Margin="10" FontSize="30" Grid.Row="1" Click="AddChildButton_Click" FontFamily="Freestyle Script"/>
+        <Button x:Name="AddChildButton" Content="Add Child" Margin="3" FontSize="30" Grid.Row="1" Click="AddChildButton_Click" FontFamily="Freestyle Script"/>
 
-        <Button x:Name="UpdateChildButton" Content="Update Child" Margin="10" FontSize="30" Grid.Row="2" Click="UpdateChildButton_Click" FontFamily="Freestyle Script"/>
+        <Button x:Name="UpdateChildButton" Content="Update Child" Margin="3" FontSize="30" Grid.Row="2" Click="UpdateChildButton_Click" FontFamily="Freestyle Script"/>
 
-        <Button x:Name="DeleteChildButton" Content="Delete Child"  Margin="10" FontSize="30" Grid.Row="3" Click="DeleteChildButton_Click" FontFamily="Freestyle Script"/>
+        <Button x:Name="DeleteChildButton" Content="Delete Child"  Margin="3" FontSize="30" Grid.Row="3" Click="DeleteChildButton_Click" FontFamily="Freestyle Script"/>
+        <Button x:Name="ShowAllChilds" Content="Show All Childs"  Margin="3" FontSize="30" Grid.Row="4" Click="ShowAllChildsButton_Click" FontFamily="Freestyle Script"/>
+
     </Grid>
 </Window>
