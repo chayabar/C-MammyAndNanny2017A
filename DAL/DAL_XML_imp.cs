@@ -394,6 +394,25 @@ namespace DAL
             current.Remove();
            Childs.Save(ChildXml);
         }
+
+        public void DeleteNanny(Nanny n)
+        {
+            XElement current = (from x in Nannys.Elements()
+                                where (x.Element("ID").Value) == n.ID
+                                select x).FirstOrDefault();
+            current.Remove();
+            Nannys.Save(NannyXml);
+        }
+
+        public void DeleteMother(Mother m)
+        {
+            XElement current = (from x in Mothers.Elements()
+                                where (x.Element("ID").Value) == m.ID
+                                select x).FirstOrDefault();
+            current.Remove();
+            Mothers.Save(MotherXml);
+        }
+
         #endregion
 
 
@@ -417,6 +436,38 @@ namespace DAL
             Contracts.Save(ContractXml);
 
         }
+
+        public void UpdateNanny(Nanny n)
+        {
+            XElement current = (from x in Nannys.Elements()
+                                where x.Element("ID").Value == Convert.ToString(n.ID)
+                                select x).FirstOrDefault();
+            if (current == null)
+                throw new Exception("the current employee doesn't exist");
+            current.Element("FirstName").Value = e.firstName;
+            current.Element("LastName").Value = e.lastName;
+            current.Element("DateBirth").Value = Convert.ToString(e.dateBirth);
+            current.Element("PhoneNumber").Value = Convert.ToString(e.phoneNumber);
+            current.Element("City").Value = e.city;
+
+            current.Element("Degree").Value = Convert.ToString(e.d);
+
+            current.Element("Experience").Value = Convert.ToString(e.experience);
+            current.Element("BankAccount").Element("BankNumber").Value = Convert.ToString(e.details.BankNum);
+            current.Element("BankAccount").Element("BankName").Value = e.details.BankName;
+            current.Element("BankAccount").Element("Adress").Value = e.details.BankAdress;
+            current.Element("BankAccount").Element("BranchNumber").Value = Convert.ToString(e.details.BankBranch);
+            current.Element("AccountNumber").Value = Convert.ToString(e.AcountNumber);
+            current.Element("Speciality").Value = Convert.ToString(e.SpecializationNumber);
+            current.Element("Car").Value = Convert.ToString(e.car);
+            current.Element("FoodCard").Value = Convert.ToString(e.foodCard);
+            current.Element("HomeWorker").Value = Convert.ToString(e.homeWorker);
+            current.Element("Prize").Value = Convert.ToString(e.prize);
+            current.Element("Vacation").Value = Convert.ToString(e.vacation);
+            current.Element("Hours").Value = Convert.ToString(e.hoursPerMonth);
+            employees.Save(EmployeeXml);
+        }
+
         #endregion
 
 
