@@ -30,18 +30,24 @@ namespace PLWPF
         }
         private void GroupContByDistanceButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            Thread thread = new Thread(myTry);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            void myTry()
             {
-                //Stopwatch stopwatch=new Stopwatch();
-                //Thread timeThread=new Thread();
-                ContractDistance cd = new ContractDistance();
-                cd.Source = bl.GroupContractsByDistance();
-                this.page.Content = cd;
+                try
+                {
+                    //Setopwatch stopwatch=new Stopwatch();
+                    //Thread timeThread=new Thread();
+                    ContractDistance cd = new ContractDistance();
+                    cd.Source = bl.GroupContractsByDistance();
+                    this.page.Content = cd;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
