@@ -130,3 +130,11 @@ C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\Grouping.ba
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyWithTMT.baml
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\NannyByAddress.baml
 C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\RangeChildAge.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllChilds.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllMothers.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllChilds.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllMothers.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllNannys.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllNannys.baml
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllContracts.g.cs
+C:\Users\owner\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\obj\Debug\ShowAllContracts.baml

@@ -11,6 +11,7 @@
             <ImageBrush/>
         </Grid.Background>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -20,15 +21,15 @@
         <Label Content=" Contract "  FontSize="50" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"  FontFamily="Freestyle Script"/>
         <Image HorizontalAlignment="Right" Height="90" Margin="3" VerticalAlignment="Top"  Source="images/images (1).jpg"   />
         <Button x:Name="AddContractButton" Content="Add Contract"  
-        Margin="10" FontSize="30" Grid.Row="1" Click="AddContractButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="30" Grid.Row="1" Click="AddContractButton_Click" FontFamily="Freestyle Script" />
 
         <Button x:Name="UpdateContractButton" Content="Update Contract"  
-        Margin="10" FontSize="30" Grid.Row="2" Click="UpdateContractButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="30" Grid.Row="2" Click="UpdateContractButton_Click" FontFamily="Freestyle Script" />
 
         <Button x:Name="DeleteContractButton" Content="Delete Contract"  
-        Margin="10" FontSize="30" Grid.Row="3" Click="DeleteContractButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="30" Grid.Row="3" Click="DeleteContractButton_Click" FontFamily="Freestyle Script" />
+        <Button x:Name="ShowAllContracts" Content="Show All Contracts"  Margin="3" FontSize="30" Grid.Row="4" Click="ShowAllContractsButton_Click" FontFamily="Freestyle Script"/>
 
 
-    
     </Grid>
 </Window>

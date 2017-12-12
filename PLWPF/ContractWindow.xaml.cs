@@ -39,5 +39,9 @@ namespace PLWPF
         {
             new DeleteContractWindow().ShowDialog();
         }
+            private void ShowAllContractsButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ShowAllContracts().ShowDialog();
+        }
     }
 }

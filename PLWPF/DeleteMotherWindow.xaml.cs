@@ -41,6 +41,8 @@ namespace PLWPF
             {
                 string id = IDComboBox.SelectedValue.ToString();
                 mother = this.bl.GetMotherByID(id);
+                MessageBox.Show(mother.ToString());
+
             }
             catch (FormatException)
             {

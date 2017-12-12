@@ -11,22 +11,25 @@
             <ImageBrush/>
         </Grid.Background>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
 
         <Label Content=" Nanny "  FontSize="50" HorizontalAlignment="Left" Margin="0,16,0,0" VerticalAlignment="Top"  FontFamily="Freestyle Script"/>
         <Image HorizontalAlignment="Left" Height="90" Margin="345,0,-0.6,0" VerticalAlignment="Top"  Source="images/baby_sitter.jpg" Stretch="Fill" Width="174"  />
         <Button x:Name="AddNannyButton" Content="Add Nanny"  
-        Margin="10" FontSize="40" Grid.Row="1" Click="AddNannyButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="40" Grid.Row="1" Click="AddNannyButton_Click" FontFamily="Freestyle Script" />
 
         <Button x:Name="UpdateNannyButton" Content="Update Nanny"  
-        Margin="10" FontSize="40" Grid.Row="2" Click="UpdateNannyButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="40" Grid.Row="2" Click="UpdateNannyButton_Click" FontFamily="Freestyle Script" />
 
         <Button x:Name="DeleteNannyButton" Content="Delete Nanny"  
-        Margin="10" FontSize="40" Grid.Row="3" Click="DeleteNannyButton_Click" FontFamily="Freestyle Script" />
+        Margin="3" FontSize="40" Grid.Row="3" Click="DeleteNannyButton_Click" FontFamily="Freestyle Script" />
+        <Button x:Name="ShowAllNannys" Content="Show All Nannys"  Margin="3" FontSize="40" Grid.Row="4" Click="ShowAllNannysButton_Click" FontFamily="Freestyle Script"/>
 
 
     </Grid>

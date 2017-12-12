@@ -40,5 +40,9 @@ namespace PLWPF
         {
             new DeleteMotherWindow().ShowDialog();
         }
+        private void ShowAllMothersButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ShowAllMothers().ShowDialog();
+        }
     }
 }

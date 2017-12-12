@@ -39,5 +39,10 @@ namespace PLWPF
         {
             new DeleteNannyWindow().ShowDialog();
         }
+        
+            private void ShowAllNannysButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ShowAllNannys().ShowDialog();
+        }
     }
 }

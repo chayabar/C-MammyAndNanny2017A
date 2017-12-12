@@ -108,6 +108,18 @@
     <Compile Include="RangeChildAge.xaml.cs">
       <DependentUpon>RangeChildAge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowAllChilds.xaml.cs">
+      <DependentUpon>ShowAllChilds.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAllContracts.xaml.cs">
+      <DependentUpon>ShowAllContracts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAllMothers.xaml.cs">
+      <DependentUpon>ShowAllMothers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAllNannys.xaml.cs">
+      <DependentUpon>ShowAllNannys.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateChildWindow.xaml.cs">
       <DependentUpon>UpdateChildWindow.xaml</DependentUpon>
     </Compile>
@@ -208,6 +220,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RangeChildAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAllChilds.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAllContracts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAllMothers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAllNannys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

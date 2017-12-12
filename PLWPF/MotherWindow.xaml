@@ -24,7 +24,7 @@
         <Button x:Name="UpdateMotherButton" Content="Update Mother"  Margin="3" FontSize="30" Grid.Row="2" Click="UpdateMotherButton_Click" FontFamily="Freestyle Script"/>
 
         <Button x:Name="DeleteMotherButton" Content="Delete Mother" Margin="3" FontSize="30" Grid.Row="3" Click="DeleteMotherButton_Click" FontFamily="Freestyle Script"/>
-        <Button x:Name="ShowAllChilds" Content="Show All Childs"  Margin="3" FontSize="30" Grid.Row="4" Click="ShowAllChildsButton_Click" FontFamily="Freestyle Script"/>
+        <Button x:Name="ShowAllMothers" Content="Show All Mothers"  Margin="3" FontSize="30" Grid.Row="4" Click="ShowAllMothersButton_Click" FontFamily="Freestyle Script"/>
 
     </Grid>
 </Window>

@@ -39,6 +39,8 @@ namespace PLWPF
             {
                 string id = childIDComboBox.SelectedValue.ToString();
                 child = this.bl.GetChildByID(id);
+                MessageBox.Show(child.ToString());
+
             }
             catch (FormatException)
             {

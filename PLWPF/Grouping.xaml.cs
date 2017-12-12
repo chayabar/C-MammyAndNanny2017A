@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +32,8 @@ namespace PLWPF
         {
             try
             {
-
+                //Stopwatch stopwatch=new Stopwatch();
+                //Thread timeThread=new Thread();
                 ContractDistance cd = new ContractDistance();
                 cd.Source = bl.GroupContractsByDistance();
                 this.page.Content = cd;

@@ -39,6 +39,11 @@ namespace PLWPF
         {
             new DeleteChildWindow().ShowDialog();
         }
+        
+        private void ShowAllChildsButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ShowAllChilds().ShowDialog();
+        }
     }
 }
 
