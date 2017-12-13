@@ -159,7 +159,14 @@ namespace DAL
             XElement Lastname = new XElement("Lastname", n.Lastname);
             XElement FirstName = new XElement("FirstName", n.FirstName);
             XElement Tel = new XElement("Tel", n.Tel);
-            XElement Address = new XElement("Address", n.Address);
+            //Address
+            XElement Number= new XElement("Number", n.Address.Number);
+            XElement Street = new XElement("Street", n.Address.Street);
+            XElement City = new XElement("City", n.Address.City);
+            XElement ZipCode = new XElement("ZipCode", n.Address.ZipCode);
+            XElement Country = new XElement("Country", n.Address.Country);
+            XElement Address = new XElement("Address", Number, Street, City, ZipCode, Country);
+            //
             XElement NannyD_of_B = new XElement("NannyD_of_B", n.NannyD_of_B);
             XElement IsElevator = new XElement("IsElevator", n.IsElevator);
             XElement YearsOfExperience = new XElement("YearsOfExperience", n.YearsOfExperience);
@@ -179,9 +186,23 @@ namespace DAL
             XElement Lastname = new XElement("Lastname", m.Lastname);
             XElement FirstName = new XElement("FirstName", m.FirstName);
             XElement Tel = new XElement("Tel", m.Tel);
-            XElement Address = new XElement("Address", m.Address);
+            //Address
+            XElement Number = new XElement("Number", m.Address.Number);
+            XElement Street = new XElement("Street", m.Address.Street);
+            XElement City = new XElement("City", m.Address.City);
+            XElement ZipCode = new XElement("ZipCode", m.Address.ZipCode);
+            XElement Country = new XElement("Country", m.Address.Country);
+            XElement Address = new XElement("Address", Number, Street, City, ZipCode, Country);
+            //
             XElement HomePhone = new XElement("HomePhone", m.HomePhone);
-            XElement BabbySitterAdress = new XElement("BabbySitterAdress", m.BabbySitterAdress);
+            //BabbySitterAdress
+            XElement bNumber = new XElement("BabbySitterNumber", m.Address.Number);
+            XElement bStreet = new XElement("BabbySitterStreet", m.Address.Street);
+            XElement bCity = new XElement("BabbySitterCity", m.Address.City);
+            XElement bZipCode = new XElement("BabbySitterZipCode", m.Address.ZipCode);
+            XElement bCountry = new XElement("BabbySitterCountry", m.Address.Country);
+            XElement BabbySitterAdress = new XElement("BabbySitterAdress", bNumber, bStreet, bCity, bZipCode, bCountry);
+            //
             XElement Workhours = new XElement("Workhours", m.Workhours);
             XElement MonthPayment = new XElement("IsElevator", m.MonthPayment);
 
@@ -202,7 +223,7 @@ namespace DAL
             c.RateforHour = Convert.ToInt32(xc.Element("RateforHour").Value);
             c.RateforMonth = Convert.ToInt32(xc.Element("RateforMonth").Value);
             c.IsMorechilds = Convert.ToBoolean(xc.Element("IsMorechilds").Value);
-            c.WorkTime = Convert.ToInt32(xc.Element("WorkTime").Value);
+            //c.WorkTime = Convert.ToInt32(xc.Element("WorkTime").Value);
             c.DateStart = Convert.ToDateTime(xc.Element("DateStart").Value);
             c.DateEnd = Convert.ToDateTime(xc.Element("DateEnd").Value);
             c.HoursOfContractMonth = Convert.ToInt32(xc.Element("HoursOfContractMonth").Value);
@@ -225,8 +246,15 @@ namespace DAL
             n.Lastname = (xn.Element("Lastname").Value);
             n.FirstName = (xn.Element("FirstName").Value);
             n.Tel = (xn.Element("Tel").Value);
-            n.Address = (xn.Element("Address").Value);
-
+            Address a = new Address();
+            //Address
+            a.Number = Convert.ToInt32(xn.Element("Number").Value);
+            a.Street = xn.Element("Street").Value;
+            a.City = xn.Element("City").Value;
+            a.ZipCode = xn.Element("ZipCode").Value;
+            a.Country = xn.Element("Country").Value;
+            n.Address = a;
+            //
             n.NannyD_of_B = Convert.ToDateTime(xn.Element("NannyD_of_B").Value);
             n.IsElevator = Convert.ToBoolean(xn.Element("IsElevator").Value);
             n.YearsOfExperience = Convert.ToInt32(xn.Element("YearsOfExperience").Value);
@@ -235,10 +263,10 @@ namespace DAL
             n.MaximumAge = Convert.ToInt32(xn.Element("MaximumAge").Value);
             n.RateforHour = Convert.ToInt32(xn.Element("RateforHour").Value);
             n.RateforMonth = Convert.ToInt32(xn.Element("RateforMonth").Value);
-            n.AvailableTime = (xn.Element("AvailableTime").Value);
+            //n.AvailableTime = (xn.Element("AvailableTime").Value);
             n.IsBasedonTMTorEdu = Convert.ToBoolean(xn.Element("IsBasedonTMTorEdu").Value);
             n.Recommendation = (xn.Element("Recommendation").Value);
-            n.NannyBank = (xn.Element("NannyBank").Value);
+            //n.NannyBank = (xn.Element("NannyBank").Value);
 
             return n;
         }
@@ -250,22 +278,46 @@ namespace DAL
             n.Lastname = (xn.Element("Lastname").Value);
             n.FirstName = (xn.Element("FirstName").Value);
             n.Tel = (xn.Element("Tel").Value);
-            n.Address = (xn.Element("Address").Value);
+            Address a = new Address();
+            //Address
+            a.Number = Convert.ToInt32(xn.Element("Number").Value);
+            a.Street = xn.Element("Street").Value;
+            a.City = xn.Element("City").Value;
+            a.ZipCode = xn.Element("ZipCode").Value;
+            a.Country = xn.Element("Country").Value;
+            n.Address = a;
+            //            
             n.HomePhone = (xn.Element("HomePhone").Value);
-            n.BabbySitterAdress = (xn.Element("BabbySitterAdress").Value);
-            n.Workhours = (xn.Element("Workhours").Value);
+            Address ab = new Address();
+            //Address
+            ab.Number = Convert.ToInt32(xn.Element("bNumber").Value);
+            ab.Street = xn.Element("bStreet").Value;
+            ab.City = xn.Element("bCity").Value;
+            ab.ZipCode = xn.Element("bZipCode").Value;
+            ab.Country = xn.Element("bCountry").Value;
+            n.BabbySitterAdress = ab;
+            //
+            //n.Workhours = (xn.Element("Workhours").Value);
             n.MonthPayment = Convert.ToBoolean(xn.Element("MonthPayment").Value);
             return n;
         }
 
 
-        BankAccount BuildBankAccount(XElement xe)
+        BankAccount BuildBankBranch(XElement xe)
         {
             BankAccount ba = new BankAccount();
-            ba.AccountNumber = Convert.ToInt32(xe.Element("AccountNumber").Value);
             ba.BankNumber = Convert.ToInt32(xe.Element("BankNumber").Value);
+            ba.BankName = (xe.Element("BankName").Value);
             ba.BankBranch = Convert.ToInt32(xe.Element("BankBranch").Value);
-            ba.BankAdress = xe.Element("BankAdress").Value);
+            Address a = new Address();
+            //Address
+            a.Number = Convert.ToInt32(xe.Element("Number").Value);
+            a.Street = xe.Element("Street").Value;
+            a.City = xe.Element("City").Value;
+            a.ZipCode = xe.Element("ZipCode").Value;
+            a.Country = xe.Element("Country").Value;
+            ba.BankAdress = a;
+            //            
             return ba;
         }
 
@@ -274,7 +326,7 @@ namespace DAL
         #region Add Functions
         public void AddContract(Contract c)
         {
-            List<Contract> list = this.GetAllContract();
+            List<Contract> list = this.GetContract();
             foreach (var item in list)
             {
                 if (item.NumberOfContract == c.NumberOfContract)
@@ -299,7 +351,7 @@ namespace DAL
         }
         public void AddChild(Child c)
         {
-            List<Child> list = this.GetAllChild();
+            List<Child> list = this.GetChilds();
             foreach (var item in list)
             {
                 if (item.ChildID == c.ChildID)
@@ -317,7 +369,7 @@ namespace DAL
             {
                 throw new Exception("ERROR: enter a Variable value!!!");
             }
-            foreach (var item in this.GetAllNanny())
+            foreach (var item in this.GetNannys())
             {
                 if (item.ID == n.ID)
                     throw new Exception("This Nanny allready exist !!!");
@@ -333,7 +385,7 @@ namespace DAL
             {
                 throw new Exception("ERROR: enter a Variable value!!!");
             }
-            foreach (var item in this.GetAllMother())
+            foreach (var item in this.GetMothers())
             {
                 if (item.ID == m.ID)
                     throw new Exception("This Mother allready exist !!!");
@@ -345,31 +397,31 @@ namespace DAL
         #endregion
 
         #region Get Functions
-        public List<BankAccount> GetAllAcounts()
+        public List<BankAccount> GetBankBranchs()
         {
             return (from v in BankAccounts.Elements()
-                    select BuildBankAccount(v)).ToList();
+                    select BuildBankBranch(v)).ToList();
         }
 
-        public List<Contract> GetAllContract()
+        public List<Contract> GetContract()
         {
             return (from v in Contracts.Elements()
                     select BuildContract(v)).ToList();
         }
 
-        public List<Child> GetAllChild()
+        public List<Child> GetChilds()
         {
             return (from v in Childs.Elements()
                     select BuildChild(v)).ToList();
         }
 
-        public List<Mother> GetAllMother()
+        public List<Mother> GetMothers()
         {
             return (from v in Mothers.Elements()
                     select BuildMother(v)).ToList();
         }
 
-        public List<Nanny> GetAllNanny()
+        public List<Nanny> GetNannys()
         {
             return (from v in Nannys.Elements()
                     select BuildNanny(v)).ToList();
@@ -414,8 +466,7 @@ namespace DAL
         }
 
         #endregion
-
-
+        
         #region Update Functions
         public void UpdateContract(Contract c)
         {
@@ -424,19 +475,36 @@ namespace DAL
                                 select x).FirstOrDefault();
             if (current == null)
                 throw new Exception("the current contract doesn't exist");
-            current.Element("EmployerId").Value = Convert.ToString(c.EmployerId);
-            current.Element("EmployeeId").Value = Convert.ToString(c.EmployeeId);
-            current.Element("IsInterviewed").Value = Convert.ToString(c.interview);
-            current.Element("IsSinged").Value = Convert.ToString(c.signed);
-            current.Element("BrutoSalary").Value = Convert.ToString(c.brutoSalary);
-            current.Element("NetoSalary").Value = Convert.ToString(c.netoSalary);
-            current.Element("Beginnig").Value = Convert.ToString(c.beginning);
-            current.Element("Final").Value = Convert.ToString(c.final);
-            current.Element("NumberOfHours").Value = Convert.ToString(c.numberOfHours);
+            current.Element("NumberOfContract").Value = Convert.ToString(c.NumberOfContract);
+            current.Element("NunnyID").Value = Convert.ToString(c.NunnyID);
+            current.Element("MotherID").Value = Convert.ToString(c.MotherID);
+            current.Element("ChildID").Value = Convert.ToString(c.ChildID);
+            current.Element("IsInterview").Value = Convert.ToString(c.IsInterview);
+            current.Element("IsContract").Value = Convert.ToString(c.IsContract);
+            current.Element("RateforHour").Value = Convert.ToString(c.RateforHour);
+            current.Element("RateforMonth").Value = Convert.ToString(c.RateforMonth);
+            current.Element("IsMorechilds").Value = Convert.ToString(c.IsMorechilds);
+            current.Element("WorkTime").Value = Convert.ToString(c.WorkTime);
+            current.Element("DateStart").Value = Convert.ToString(c.DateStart);
+            current.Element("DateEnd").Value = Convert.ToString(c.DateEnd);
+            current.Element("HoursOfContractMonth").Value = Convert.ToString(c.HoursOfContractMonth);
             Contracts.Save(ContractXml);
 
         }
-
+        public void UpdateChild(Child c)
+        {
+            XElement current = (from x in Contracts.Elements()
+                                where x.Element("ChildID").Value == Convert.ToString(c.ChildID)
+                                select x).FirstOrDefault();
+            if (current == null)
+                throw new Exception("the current child doesn't exist");
+            current.Element("ChildID").Value = Convert.ToString(c.ChildID);
+            current.Element("MotherID").Value = Convert.ToString(c.MotherID);
+            current.Element("ChildName").Value = Convert.ToString(c.ChildName);
+            current.Element("DateOfBirth").Value = Convert.ToString(c.DateOfBirth);
+            current.Element("IsSpacialNeeds").Value = Convert.ToString(c.IsSpacialNeeds);
+            Childs.Save(ChildXml);
+        }
         public void UpdateNanny(Nanny n)
         {
             XElement current = (from x in Nannys.Elements()
@@ -444,28 +512,110 @@ namespace DAL
                                 select x).FirstOrDefault();
             if (current == null)
                 throw new Exception("the current employee doesn't exist");
-            current.Element("FirstName").Value = e.firstName;
-            current.Element("LastName").Value = e.lastName;
-            current.Element("DateBirth").Value = Convert.ToString(e.dateBirth);
-            current.Element("PhoneNumber").Value = Convert.ToString(e.phoneNumber);
-            current.Element("City").Value = e.city;
+            current.Element("Lastname").Value = n.Lastname;
+            current.Element("FirstName").Value = n.FirstName;
+            current.Element("Tel").Value = n.Tel;
+            current.Element("NannyBank").Element("BankNumber").Value = Convert.ToString(n.NannyBank.BankNumber);
+            current.Element("NannyBank").Element("BankName").Value = Convert.ToString(n.NannyBank.BankName);
+            current.Element("NannyBank").Element("BankBranch").Value = n.NannyBank.BankName;
+            current.Element("NannyBank").Element("BankAdress").Value = Convert.ToString(n.NannyBank.BankBranch);
+            XElement a = new XElement(
+            //Address
+            new XElement("Number").Value= Convert.ToString(n.Address.Number),
+            new XElement("Street").Value =(n.Address.Street),
+            new XElement("City").Value = (n.Address.City),
+            new XElement("ZipCode").Value = (n.Address.ZipCode),
+            new XElement("Country").Value = Convert.ToString(n.Address.Country)
+            );
+            current.Element("Address").ReplaceAll(a);  
+            current.Element("NannyD_of_B").Value = Convert.ToString(n.NannyD_of_B);
+            current.Element("IsElevator").Value = Convert.ToString(n.IsElevator);
+            current.Element("YearsOfExperience").Value = Convert.ToString(n.YearsOfExperience);
+            current.Element("MaxKids").Value = Convert.ToString(n.MaxKids);
+            current.Element("MinimunmAge").Value = Convert.ToString(n.MinimunmAge);
+            current.Element("MaximumAge").Value = Convert.ToString(n.MaximumAge);
+            current.Element("RateforHour").Value = Convert.ToString(n.RateforHour);
+            current.Element("RateforMonth").Value = Convert.ToString(n.RateforMonth);
+            current.Element("AvailableTime").Value = Convert.ToString(n.AvailableTime);
+            current.Element("IsBasedonTMTorEdu").Value = Convert.ToString(n.IsBasedonTMTorEdu);
+            current.Element("Recommendation").Value = n.Recommendation;
 
-            current.Element("Degree").Value = Convert.ToString(e.d);
+            Nannys.Save(NannyXml);
+        }
 
-            current.Element("Experience").Value = Convert.ToString(e.experience);
-            current.Element("BankAccount").Element("BankNumber").Value = Convert.ToString(e.details.BankNum);
-            current.Element("BankAccount").Element("BankName").Value = e.details.BankName;
-            current.Element("BankAccount").Element("Adress").Value = e.details.BankAdress;
-            current.Element("BankAccount").Element("BranchNumber").Value = Convert.ToString(e.details.BankBranch);
-            current.Element("AccountNumber").Value = Convert.ToString(e.AcountNumber);
-            current.Element("Speciality").Value = Convert.ToString(e.SpecializationNumber);
-            current.Element("Car").Value = Convert.ToString(e.car);
-            current.Element("FoodCard").Value = Convert.ToString(e.foodCard);
-            current.Element("HomeWorker").Value = Convert.ToString(e.homeWorker);
-            current.Element("Prize").Value = Convert.ToString(e.prize);
-            current.Element("Vacation").Value = Convert.ToString(e.vacation);
-            current.Element("Hours").Value = Convert.ToString(e.hoursPerMonth);
-            employees.Save(EmployeeXml);
+        public void UpdateMother(Mother m)
+        {
+            XElement current = (from x in Mothers.Elements()
+                                where x.Element("ID").Value == Convert.ToString(m.ID)
+                                select x).FirstOrDefault();
+            if (current == null)
+                throw new Exception("the current employee doesn't exist");
+            current.Element("Lastname").Value = m.Lastname;
+            current.Element("FirstName").Value = m.FirstName;
+            current.Element("Tel").Value = m.Tel;
+            current.Element("Address").Value = Convert.ToString(m.Address);
+            XElement a = new XElement(
+            //Address
+            new XElement("Number").Value = Convert.ToString(m.Address.Number),
+            new XElement("Street").Value = (m.Address.Street),
+            new XElement("City").Value = (m.Address.City),
+            new XElement("ZipCode").Value = (m.Address.ZipCode),
+            new XElement("Country").Value = Convert.ToString(m.Address.Country)
+            );
+            current.Element("Address").ReplaceAll(a);
+            current.Element("HomePhone").Value = m.HomePhone;
+            XElement ba = new XElement(
+           //Address
+           new XElement("Number").Value = Convert.ToString(m.Address.Number),
+           new XElement("Street").Value = (m.Address.Street),
+           new XElement("City").Value = (m.Address.City),
+           new XElement("ZipCode").Value = (m.Address.ZipCode),
+           new XElement("Country").Value = Convert.ToString(m.Address.Country)
+           );
+            current.Element("BabbySitterAdress").ReplaceAll(ba);
+            current.Element("Workhours").Value = Convert.ToString(m.Workhours);
+            current.Element("MonthPayment").Value = Convert.ToString(m.MonthPayment);
+            Mothers.Save(MotherXml);
+        }
+
+
+        #endregion
+
+        #region get functions
+
+        private void ChildLoadData()
+        {
+            try
+            {
+                Childs = XElement.Load(ChildXml);
+            }
+            catch
+            {
+                throw new Exception("File upload problem");
+            }
+        }
+       public List<Child> GetChildsByMother(Mother mother)
+        {
+            ChildLoadData();
+            List<Child> childs;
+            try
+            {
+                childs = (from p in Childs.Elements()
+                          where (p.Element("MotherID").Value) == mother.ID
+                          select new Child()
+                          {
+                              ChildID = (p.Element("ChildID").Value),
+                              MotherID = (p.Element("MotherID").Value),
+                              ChildName = (p.Element("ChildName").Value),
+                              DateOfBirth = Convert.ToDateTime(p.Element("DateOfBirth").Value),
+                              IsSpacialNeeds = Convert.ToBoolean(p.Element("IsSpacialNeeds").Value)
+                          }).ToList();
+            }
+            catch
+            {
+                childs = null;
+            }
+            return childs;
         }
 
         #endregion

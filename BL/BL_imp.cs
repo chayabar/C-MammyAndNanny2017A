@@ -31,20 +31,20 @@ namespace BL
         public void AddContract(Contract newcontract)
         {
             //check if nanny exist in DataSource
-            if (!(DataSource.Nannys.Exists(n => n.ID == newcontract.NunnyID)))
-            {
-                throw new Exception("Nanny doesnt exist");
-            }
+            //if (!(DataSource.Nannys.Exists(n => n.ID == newcontract.NunnyID)))
+            //{
+            //    throw new Exception("Nanny doesnt exist");
+            //}
             //check if mother exist in DataSource
-            if (!DataSource.Mothers.Exists(n => n.ID == newcontract.MotherID))
-            {
-                throw new Exception("Mother doesnt exist");
-            }
-            //check if child exist in DataSource
-            if (!DataSource.Childs.Exists(n => n.ChildID == newcontract.ChildID))
-            {
-                throw new Exception("child doesnt exist");
-            }
+            //if (!DataSource.Mothers.Exists(n => n.ID == newcontract.MotherID))
+            //{
+            //    throw new Exception("Mother doesnt exist");
+            //}
+            ////check if child exist in DataSource
+            //if (!DataSource.Childs.Exists(n => n.ChildID == newcontract.ChildID))
+            //{
+            //    throw new Exception("child doesnt exist");
+            //}
             //check if the child adult enough
             Child child = DataSource.Childs.Find(n => n.ChildID == newcontract.ChildID);
             if ((DateTime.Now.Month - child.DateOfBirth.Month) + 12 * (DateTime.Now.Year - child.DateOfBirth.Year) < 3)
@@ -203,7 +203,7 @@ namespace BL
             return distanceNannys;
         }
 
-        public List<int> GetBankBranchs()
+        public List<BankAccount> GetBankBranchs()
         {
             Idal mydal = FactoryDal.getDal();
             return mydal.GetBankBranchs();

@@ -30,6 +30,6 @@ namespace DAL
         List<Child> GetChilds();
         List<Child> GetChildsByMother(Mother mother);
         List<Contract> GetContract();
-        List<int> GetBankBranchs();
+        List<BankAccount> GetBankBranchs();
     }
 }

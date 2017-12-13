@@ -160,16 +160,25 @@ namespace DAL
         {
             return DS.DataSource.Contracts.Select(item => item.ContractDeepClone()).ToList();
         }
-        public List<int> GetBankBranchs()
+        public List<BankAccount> GetBankBranchs()
         {
-            List<int> BankBranchs = new List<int>();
-            BankBranchs.Add(734);
-            BankBranchs.Add(725);
-            BankBranchs.Add(733);
-            BankBranchs.Add(711);
-            BankBranchs.Add(756);
+            List<BankAccount> BankBranchs = new List<BankAccount>();
+            BankAccount b = new BankAccount
+            {
+                BankAdress = new BE.Address
+                {
+                    City = "jerusalem",
+                    Country = "israel",
+                    Number = 7,
+                    Street = "beit hadfus",
+                    ZipCode = "234"
+                },
+                BankBranch = 123,
+                BankName = "mercantil",
+                BankNumber = 19
+            };
+            BankBranchs.Add(b);
             return BankBranchs;
-
         }
     }
 }

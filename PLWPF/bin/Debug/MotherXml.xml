@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mothers>
+  <Nanny>
+    <FirstName>Imeinu</FirstName>
+    <Lastname>Sarah</Lastname>
+    <Tel>01233477</Tel>
+    <Address> beit hadfus 11,Jerusalem,Israel</Address>
+    <HomePhone>67767678</HomePhone>
+    <BabbySitterAdress> beit hadfus 11,Jerusalem,Israel</BabbySitterAdress>
+    <Workhours>[Sunday, [700, 1900]][Monday, [700, 1900]][Tuesday, [700, 1900]][Wednesday, [700, 1900]][Thursday, [700, 1900]][Friday, [700, 1900]]</Workhours>
+    <IsElevator>false</IsElevator>
+  </Nanny>
+</Mothers>

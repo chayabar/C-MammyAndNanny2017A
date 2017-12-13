@@ -33,11 +33,9 @@ namespace BL
         Nanny GetNannyByID(string ID);
         int ContractDistance(Contract contract);
         List<Contract> GetContract();
-        List<int> GetBankBranchs();
+        List<BankAccount> GetBankBranchs();
         List<Contract> GetContractByNanny(Nanny nanny);
         Child GetChildByID(string id);
-
-
         List<Nanny> AvailableNannys(Mother mother, Child child);
         Contract GetContractByID(int id);
         bool IsAvailableNanny(Mother mother, Nanny nanny);

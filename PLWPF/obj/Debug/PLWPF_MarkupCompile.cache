@@ -16,5 +16,5 @@ C:\Users\WIN8-PC\Documents\GitHub\C-MammyAndNanny2017A\PLWPF\App.xaml
 151189120467
 AddChildWindow.xaml;AddContractWindow.xaml;AddMotherWindow.xaml;AddNannyWindow.xaml;Address.xaml;AvailableTime.xaml;ChildWindow.xaml;ContractDistance.xaml;ContractWindow.xaml;DeleteChildWindow.xaml;DeleteContractWindow.xaml;DeleteMotherWindow.xaml;DeleteNannyWindow.xaml;Grouping.xaml;MainWindow.xaml;MotherWindow.xaml;NannyWithTMT.xaml;NannyByAddress.xaml;NannyWindow.xaml;RangeChildAge.xaml;ShowAllChilds.xaml;ShowAllContracts.xaml;ShowAllMothers.xaml;ShowAllNannys.xaml;UpdateChildWindow.xaml;UpdateContractWindow.xaml;UpdateMotherWindow.xaml;UpdateNannyWindow.xaml;
 
-True
+False
 

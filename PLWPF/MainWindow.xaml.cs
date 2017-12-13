@@ -78,7 +78,6 @@ namespace PLWPF
                 Recommendation = "good",
                 NannyBank = new BE.BankAccount
                 {
-                     AccountNumber=222,
                      BankAdress=new BE.Address
                      {
                           City="jerusalem",

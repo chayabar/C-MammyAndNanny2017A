@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Nannys>
+  <Nanny>
+    <FirstName>chaya</FirstName>
+    <Lastname>bar</Lastname>
+    <Tel>025800856</Tel>
+    <Address> Herzl 22,Jerusalem,Israel</Address>
+    <NannyD_of_B>1988-02-02T00:00:00</NannyD_of_B>
+    <IsElevator>true</IsElevator>
+    <YearsOfExperience>3</YearsOfExperience>
+    <MaxKids>5</MaxKids>
+    <MinimunmAge>3</MinimunmAge>
+    <MaximumAge>24</MaximumAge>
+    <RateforHour>30</RateforHour>
+    <RateforMonth>5000</RateforMonth>
+    <AvailableTime>[Sunday, [600, 1900]][Monday, [600, 1900]][Tuesday, [700, 1900]][Wednesday, [700, 2000]][Thursday, [700, 1900]][Friday, [700, 1900]]</AvailableTime>
+    <IsBasedonTMTorEdu>true</IsBasedonTMTorEdu>
+    <Recommendation>good</Recommendation>
+    <NannyBank>Bank Account details:
+---------------------
+Bank Number:0
+Bank Name:
+Bank Branch:0
+Bank Adress: beit hadfus 7,jerusalem,israel
+</NannyBank>
+  </Nanny>
+</Nannys>
