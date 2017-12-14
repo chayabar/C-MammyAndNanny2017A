@@ -127,6 +127,7 @@ namespace DAL
                 }
             }
         }
+
         #region Build XElement
         XElement BuildXelementContract(Contract c)
         {
@@ -139,12 +140,33 @@ namespace DAL
             XElement RateforHour = new XElement("RateforHour", c.RateforHour);
             XElement RateforMonth = new XElement("RateforMonth", c.RateforMonth);
             XElement IsMorechilds = new XElement("IsMorechilds", c.IsMorechilds);
-            XElement WorkTime = new XElement("WorkTime", c.WorkTime);
+            //workTime
+            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Sunday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Sunday].Value));
+            XElement m = new XElement(DayOfWeek.Monday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Monday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Monday].Value));
+            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Tuesday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Tuesday].Value));
+            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Wednesday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Wednesday].Value));
+            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Thursday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Thursday].Value));
+            XElement f = new XElement(DayOfWeek.Friday.ToString(),
+                new XElement("start", c.WorkTime[DayOfWeek.Friday].Key),
+                new XElement("end", c.WorkTime[DayOfWeek.Friday].Value));
+            XElement WorkTime = new XElement("WorkTime", s, m, t, w, th, f);
+
             XElement DateStart = new XElement("DateStart", c.DateStart);
             XElement DateEnd = new XElement("DateEnd", c.DateEnd);
             XElement HoursOfContractMonth = new XElement("HoursOfContractMonth", c.HoursOfContractMonth);
             return new XElement("Contract", NumberOfContract, NunnyID, MotherID, ChildID, IsInterview, IsContract, RateforHour, RateforMonth, IsMorechilds, WorkTime, DateStart, DateEnd, HoursOfContractMonth);
         }
+
         XElement BuildXelementChild(Child c)
         {
             XElement ChildID = new XElement("ChildID", c.ChildID);
@@ -154,6 +176,7 @@ namespace DAL
             XElement IsSpacialNeeds = new XElement("IsSpacialNeeds", c.IsSpacialNeeds);
             return new XElement("Child", ChildID, MotherID, ChildName, DateOfBirth, IsSpacialNeeds);
         }
+
         XElement BuildXelementNanny(Nanny n)
         {
             XElement Lastname = new XElement("Lastname", n.Lastname);
@@ -175,12 +198,33 @@ namespace DAL
             XElement MaximumAge = new XElement("MaximumAge", n.MaximumAge);
             XElement RateforHour = new XElement("RateforHour", n.RateforHour);
             XElement RateforMonth = new XElement("RateforMonth", n.RateforMonth);
-            XElement AvailableTime = new XElement("AvailableTime", n.AvailableTime);
+            //availabeTime
+            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Sunday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Sunday].Value));
+            XElement m = new XElement(DayOfWeek.Monday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Monday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Monday].Value));
+            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Tuesday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Tuesday].Value));
+            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Wednesday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Wednesday].Value));
+            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Thursday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Thursday].Value));
+            XElement f = new XElement(DayOfWeek.Friday.ToString(),
+                new XElement("start", n.AvailableTime[DayOfWeek.Friday].Key),
+                new XElement("end", n.AvailableTime[DayOfWeek.Friday].Value));
+            XElement AvailableTime = new XElement("AvailableTime", s, m, t, w, th, f);
+
             XElement IsBasedonTMTorEdu = new XElement("IsBasedonTMTorEdu", n.IsBasedonTMTorEdu);
             XElement Recommendation = new XElement("Recommendation", n.Recommendation);
             XElement NannyBank = new XElement("NannyBank", n.NannyBank);
             return new XElement("Nanny", FirstName, Lastname, Tel, Address, NannyD_of_B, IsElevator, YearsOfExperience, MaxKids, MinimunmAge, MaximumAge, RateforHour, RateforMonth, AvailableTime, IsBasedonTMTorEdu, Recommendation, NannyBank);
         }
+
         XElement BuildXelementMother(Mother m)
         {
             XElement Lastname = new XElement("Lastname", m.Lastname);
@@ -202,8 +246,27 @@ namespace DAL
             XElement bZipCode = new XElement("BabbySitterZipCode", m.Address.ZipCode);
             XElement bCountry = new XElement("BabbySitterCountry", m.Address.Country);
             XElement BabbySitterAdress = new XElement("BabbySitterAdress", bNumber, bStreet, bCity, bZipCode, bCountry);
-            //
-            XElement Workhours = new XElement("Workhours", m.Workhours);
+            //workHours
+            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Sunday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Sunday].Value));
+            XElement mo = new XElement(DayOfWeek.Monday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Monday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Monday].Value));
+            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Tuesday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Tuesday].Value));
+            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Wednesday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Wednesday].Value));
+            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Thursday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Thursday].Value));
+            XElement f = new XElement(DayOfWeek.Friday.ToString(),
+                new XElement("start", m.Workhours[DayOfWeek.Friday].Key),
+                new XElement("end", m.Workhours[DayOfWeek.Friday].Value));
+            XElement Workhours = new XElement("Workhours", s, m, t, w, th, f);
+
             XElement MonthPayment = new XElement("IsElevator", m.MonthPayment);
 
             return new XElement("Nanny", FirstName, Lastname, Tel, Address, HomePhone, BabbySitterAdress, Workhours, MonthPayment);
@@ -349,6 +412,7 @@ namespace DAL
             Contracts.Add(BuildXelementContract(c));
 
         }
+
         public void AddChild(Child c)
         {
             List<Child> list = this.GetChilds();
@@ -363,6 +427,7 @@ namespace DAL
             Childs.Add(BuildXelementChild(c));
 
         }
+
         public void AddNanny(Nanny n)
         {
             if (n == null)
@@ -464,7 +529,6 @@ namespace DAL
             current.Remove();
             Mothers.Save(MotherXml);
         }
-
         #endregion
         
         #region Update Functions
@@ -491,6 +555,7 @@ namespace DAL
             Contracts.Save(ContractXml);
 
         }
+
         public void UpdateChild(Child c)
         {
             XElement current = (from x in Contracts.Elements()
@@ -505,6 +570,7 @@ namespace DAL
             current.Element("IsSpacialNeeds").Value = Convert.ToString(c.IsSpacialNeeds);
             Childs.Save(ChildXml);
         }
+
         public void UpdateNanny(Nanny n)
         {
             XElement current = (from x in Nannys.Elements()
@@ -619,9 +685,6 @@ namespace DAL
         }
 
         #endregion
-
-
-
 
     }
 }
