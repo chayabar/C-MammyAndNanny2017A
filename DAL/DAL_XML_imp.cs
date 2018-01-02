@@ -141,26 +141,12 @@ namespace DAL
             XElement RateforMonth = new XElement("RateforMonth", c.RateforMonth);
             XElement IsMorechilds = new XElement("IsMorechilds", c.IsMorechilds);
             //workTime
-            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Sunday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Sunday].Value));
-            XElement m = new XElement(DayOfWeek.Monday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Monday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Monday].Value));
-            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Tuesday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Tuesday].Value));
-            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Wednesday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Wednesday].Value));
-            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Thursday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Thursday].Value));
-            XElement f = new XElement(DayOfWeek.Friday.ToString(),
-                new XElement("start", c.WorkTime[DayOfWeek.Friday].Key),
-                new XElement("end", c.WorkTime[DayOfWeek.Friday].Value));
-            XElement WorkTime = new XElement("WorkTime", s, m, t, w, th, f);
-
+            XElement WorkTime = new XElement("WorkTime", 
+                from e in c.WorkTime
+                select new XElement(e.Key.ToString(),
+                            new XElement("start", e.Value.Key),
+                            new XElement("end", e.Value.Value)));
+ 
             XElement DateStart = new XElement("DateStart", c.DateStart);
             XElement DateEnd = new XElement("DateEnd", c.DateEnd);
             XElement HoursOfContractMonth = new XElement("HoursOfContractMonth", c.HoursOfContractMonth);
@@ -269,7 +255,7 @@ namespace DAL
 
             XElement MonthPayment = new XElement("IsElevator", m.MonthPayment);
 
-            return new XElement("Nanny", FirstName, Lastname, Tel, Address, HomePhone, BabbySitterAdress, Workhours, MonthPayment);
+            return new XElement("Mother", FirstName, Lastname, Tel, Address, HomePhone, BabbySitterAdress, Workhours, MonthPayment);
         }
         #endregion
 
@@ -287,6 +273,14 @@ namespace DAL
             c.RateforMonth = Convert.ToInt32(xc.Element("RateforMonth").Value);
             c.IsMorechilds = Convert.ToBoolean(xc.Element("IsMorechilds").Value);
             //c.WorkTime = Convert.ToInt32(xc.Element("WorkTime").Value);
+            
+            c.WorkTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>();
+            foreach (var e in xc.Element("WorkTime").Elements())
+            {
+                c.WorkTime[(DayOfWeek)Enum.Parse(typeof (DayOfWeek),e.Name.ToString())] = new KeyValuePair<int, int>(Convert.ToInt32(e.Element("start").Value), Convert.ToInt32(e.Element("end").Value));               
+            }
+
+
             c.DateStart = Convert.ToDateTime(xc.Element("DateStart").Value);
             c.DateEnd = Convert.ToDateTime(xc.Element("DateEnd").Value);
             c.HoursOfContractMonth = Convert.ToInt32(xc.Element("HoursOfContractMonth").Value);
@@ -334,34 +328,34 @@ namespace DAL
             return n;
         }
 
-        Mother BuildMother(XElement xn)
+        Mother BuildMother(XElement xm)
         {
             Mother n = new Mother();
-            n.ID = (xn.Element("ID").Value);
-            n.Lastname = (xn.Element("Lastname").Value);
-            n.FirstName = (xn.Element("FirstName").Value);
-            n.Tel = (xn.Element("Tel").Value);
+            n.ID = (xm.Element("ID").Value);
+            n.Lastname = (xm.Element("Lastname").Value);
+            n.FirstName = (xm.Element("FirstName").Value);
+            n.Tel = (xm.Element("Tel").Value);
             Address a = new Address();
             //Address
-            a.Number = Convert.ToInt32(xn.Element("Number").Value);
-            a.Street = xn.Element("Street").Value;
-            a.City = xn.Element("City").Value;
-            a.ZipCode = xn.Element("ZipCode").Value;
-            a.Country = xn.Element("Country").Value;
+            a.Number = Convert.ToInt32(xm.Element("Number").Value);
+            a.Street = xm.Element("Street").Value;
+            a.City = xm.Element("City").Value;
+            a.ZipCode = xm.Element("ZipCode").Value;
+            a.Country = xm.Element("Country").Value;
             n.Address = a;
-            //            
-            n.HomePhone = (xn.Element("HomePhone").Value);
+            //           
+            n.HomePhone = (xm.Element("HomePhone").Value);
             Address ab = new Address();
             //Address
-            ab.Number = Convert.ToInt32(xn.Element("bNumber").Value);
-            ab.Street = xn.Element("bStreet").Value;
-            ab.City = xn.Element("bCity").Value;
-            ab.ZipCode = xn.Element("bZipCode").Value;
-            ab.Country = xn.Element("bCountry").Value;
+            ab.Number = Convert.ToInt32(xm.Element("bNumber").Value);
+            ab.Street = xm.Element("bStreet").Value;
+            ab.City = xm.Element("bCity").Value;
+            ab.ZipCode = xm.Element("bZipCode").Value;
+            ab.Country = xm.Element("bCountry").Value;
             n.BabbySitterAdress = ab;
             //
             //n.Workhours = (xn.Element("Workhours").Value);
-            n.MonthPayment = Convert.ToBoolean(xn.Element("MonthPayment").Value);
+            n.MonthPayment = Convert.ToBoolean(xm.Element("MonthPayment").Value);
             return n;
         }
 
