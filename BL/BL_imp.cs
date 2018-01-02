@@ -46,14 +46,14 @@ namespace BL
             //    throw new Exception("child doesnt exist");
             //}
             //check if the child adult enough
-            Child child = DataSource.Childs.Find(n => n.ChildID == newcontract.ChildID);
+            Child child = GetChilds().Find(n => n.ChildID == newcontract.ChildID);
             if ((DateTime.Now.Month - child.DateOfBirth.Month) + 12 * (DateTime.Now.Year - child.DateOfBirth.Year) < 3)
             {
                 throw new Exception("Child too young");
             }
             //check if the nanny not full
-            Nanny nanny = DataSource.Nannys.Find(n => n.ID == newcontract.NunnyID);
-            int numcontract = DataSource.Contracts.FindAll(n => n.NunnyID == newcontract.NunnyID).Count;
+            Nanny nanny = GetNannys().Find(n => n.ID == newcontract.NunnyID);
+            int numcontract = GetContract().FindAll(n => n.NunnyID == newcontract.NunnyID).Count;
             if (numcontract == nanny.MaxKids)
                 throw new Exception("this nanny is full");
             if (newcontract.IsMorechilds)
@@ -101,7 +101,7 @@ namespace BL
         {
             //return list of nannys that suits to mother by
             int childage= ((DateTime.Now - child.DateOfBirth).Days)/30;
-            List<Nanny> availableNannys = DataSource.Nannys.FindAll(n => IsAvailableNanny(mother, n)&&(childage>n.MinimunmAge) && (childage<n.MaximumAge)).ToList();
+            List<Nanny> availableNannys = GetNannys().FindAll(n => IsAvailableNanny(mother, n)&&(childage>n.MinimunmAge) && (childage<n.MaximumAge)).ToList();
             return availableNannys;
         }
 
@@ -109,14 +109,14 @@ namespace BL
         {
             //get over all childs and find all of them that dont have nannys(/contract)
             //for each child get over all contracts and add to list if didnt find one
-            List<Child> childWithoutNanny = DataSource.Childs.FindAll(n => !DataSource.Contracts.Exists(x => x.ChildID==n.ChildID)).ToList();
+            List<Child> childWithoutNanny = GetChilds().FindAll(n => !GetContract().Exists(x => x.ChildID==n.ChildID)).ToList();
             return childWithoutNanny;
         }
 
         public List<Contract> ContractWithCondition(Predicate<Contract>  mycondition)
         {
             //return all contracts that stand in the condition (bool)
-            List<Contract> contractWithCondition = DataSource.Contracts.FindAll(n=>mycondition(n)).ToList();
+            List<Contract> contractWithCondition = GetContract().FindAll(n=>mycondition(n)).ToList();
             return contractWithCondition;
         }
 
@@ -131,7 +131,7 @@ namespace BL
         public Contract GetContractByChild(Child child)
         {
             // find contract with this child if exist
-            Contract mycontract = DataSource.Contracts.Find(n => child.ChildID==n.ChildID); 
+            Contract mycontract = GetContract().Find(n => child.ChildID==n.ChildID); 
             return mycontract;
         }
 
@@ -161,7 +161,7 @@ namespace BL
 
         public List<Contract> GetContractByNanny(Nanny nanny)
         {
-            List<Contract> ContractByNanny = DataSource.Contracts.FindAll(n => n.NunnyID == nanny.ID).ToList();
+            List<Contract> ContractByNanny = GetContract().FindAll(n => n.NunnyID == nanny.ID).ToList();
             return ContractByNanny;
         }
 
@@ -179,7 +179,7 @@ namespace BL
         public List<Nanny> DistanceNannys(Mother mother)//this function find all the nannys with distans of 1 KM from mammy
         {
             List<Nanny> distanceNannys = new List<Nanny>();
-            foreach (Nanny nanny in DS.DataSource.Nannys)
+            foreach (Nanny nanny in GetNannys())
             {
                 string motherAddress = mother.BabbySitterAdress.ToString();
                 if (motherAddress == null)
@@ -241,13 +241,13 @@ namespace BL
 
         public Mother GetMotherByID(string ID)//Get Mother By ID
         {
-            Mother mother = DS.DataSource.Mothers.Find(x => x.ID == ID);
+            Mother mother = GetMothers().Find(x => x.ID == ID);
             return mother;
         }
 
         public Nanny GetNannyByID(string ID)//Get Nanny By ID  
         {
-            Nanny nanny = DS.DataSource.Nannys.Find(x => x.ID == ID);
+            Nanny nanny =GetNannys().Find(x => x.ID == ID);
             return nanny;
         }
 
@@ -272,7 +272,7 @@ namespace BL
 
         public List<IGrouping<int, Contract>> GroupContractsByDistance()//Group the Contracts By Distance from mother to nanny
         {
-            IEnumerable<IGrouping<int, Contract>> ContractsByDistance = from Contract contract in DS.DataSource.Contracts
+            IEnumerable<IGrouping<int, Contract>> ContractsByDistance = from Contract contract in GetContract()
                                                                         group contract by(ContractDistance(contract));
         
             return ContractsByDistance.ToList();
@@ -280,21 +280,21 @@ namespace BL
 
         public List<IGrouping<String, Nanny>> GroupNannysByAddress()//group the nannys by city
         {
-            IEnumerable<IGrouping<String, Nanny>> NannysByAddress = from nanny in DS.DataSource.Nannys
+            IEnumerable<IGrouping<String, Nanny>> NannysByAddress = from nanny in GetNannys()
                                                                           group nanny by (nanny.Address.City);
             return NannysByAddress.ToList();
         }
 
         public List<IGrouping<String, Nanny>> GroupNannysByRangeChildAge()//group the nunny by range of ages
         {
-            IEnumerable<IGrouping<String, Nanny>> NannysByRangeChildAge = from nanny in  DS.DataSource.Nannys
+            IEnumerable<IGrouping<String, Nanny>> NannysByRangeChildAge = from nanny in  GetNannys()
                                                            group nanny by (String)(nanny.MinimunmAge+"-"+nanny.MaximumAge);
             return NannysByRangeChildAge.ToList();
         }
 
         public List<Nanny> NannysWithTMT()//return all nannys that based on TMT
         {
-            List<Nanny> NannysTMT = DataSource.Nannys.FindAll(n => n.IsBasedonTMTorEdu == true).ToList();
+            List<Nanny> NannysTMT = GetNannys().FindAll(n => n.IsBasedonTMTorEdu == true).ToList();
             return NannysTMT;
         }
 
@@ -324,13 +324,13 @@ namespace BL
 
         public Child GetChildByID(string id)
         {
-            Child child=DS.DataSource.Childs.Find(x => x.ChildID == id);
+            Child child=GetChilds().Find(x => x.ChildID == id);
             return child;
         }
 
         public Contract GetContractByID(int id)
         {
-            Contract contract = DS.DataSource.Contracts.Find(x => x.NumberOfContract == id);
+            Contract contract = GetContract().Find(x => x.NumberOfContract == id);
             return contract;
         }
     }

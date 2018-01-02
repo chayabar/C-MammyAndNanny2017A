@@ -129,6 +129,16 @@ namespace DAL
         }
 
         #region Build XElement
+        XElement BuildXelementAddress(Address a)
+        {
+            XElement Number = new XElement("Number", a.Number);
+            XElement Street = new XElement("Street", a.Street);
+            XElement City = new XElement("City", a.City);
+            XElement ZipCode = new XElement("ZipCode", a.ZipCode);
+            XElement Country = new XElement("Country", a.Country);
+            return new XElement("Address", Number, Street, City, ZipCode, Country);
+        }
+
         XElement BuildXelementContract(Contract c)
         {
             XElement NumberOfContract = new XElement("NumberOfContract", c.NumberOfContract);
@@ -165,17 +175,13 @@ namespace DAL
 
         XElement BuildXelementNanny(Nanny n)
         {
+            XElement ID = new XElement("ID", n.ID);
             XElement Lastname = new XElement("Lastname", n.Lastname);
             XElement FirstName = new XElement("FirstName", n.FirstName);
             XElement Tel = new XElement("Tel", n.Tel);
-            //Address
-            XElement Number= new XElement("Number", n.Address.Number);
-            XElement Street = new XElement("Street", n.Address.Street);
-            XElement City = new XElement("City", n.Address.City);
-            XElement ZipCode = new XElement("ZipCode", n.Address.ZipCode);
-            XElement Country = new XElement("Country", n.Address.Country);
-            XElement Address = new XElement("Address", Number, Street, City, ZipCode, Country);
-            //
+
+            XElement Address =BuildXelementAddress(n.Address);
+            
             XElement NannyD_of_B = new XElement("NannyD_of_B", n.NannyD_of_B);
             XElement IsElevator = new XElement("IsElevator", n.IsElevator);
             XElement YearsOfExperience = new XElement("YearsOfExperience", n.YearsOfExperience);
@@ -185,81 +191,83 @@ namespace DAL
             XElement RateforHour = new XElement("RateforHour", n.RateforHour);
             XElement RateforMonth = new XElement("RateforMonth", n.RateforMonth);
             //availabeTime
-            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Sunday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Sunday].Value));
-            XElement m = new XElement(DayOfWeek.Monday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Monday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Monday].Value));
-            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Tuesday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Tuesday].Value));
-            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Wednesday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Wednesday].Value));
-            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Thursday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Thursday].Value));
-            XElement f = new XElement(DayOfWeek.Friday.ToString(),
-                new XElement("start", n.AvailableTime[DayOfWeek.Friday].Key),
-                new XElement("end", n.AvailableTime[DayOfWeek.Friday].Value));
-            XElement AvailableTime = new XElement("AvailableTime", s, m, t, w, th, f);
-
+            XElement AvailableTime = new XElement("AvailableTime",
+                from e in n.AvailableTime
+                select new XElement(e.Key.ToString(),
+                            new XElement("start", e.Value.Key),
+                            new XElement("end", e.Value.Value)));
+            
             XElement IsBasedonTMTorEdu = new XElement("IsBasedonTMTorEdu", n.IsBasedonTMTorEdu);
             XElement Recommendation = new XElement("Recommendation", n.Recommendation);
-            XElement NannyBank = new XElement("NannyBank", n.NannyBank);
-            return new XElement("Nanny", FirstName, Lastname, Tel, Address, NannyD_of_B, IsElevator, YearsOfExperience, MaxKids, MinimunmAge, MaximumAge, RateforHour, RateforMonth, AvailableTime, IsBasedonTMTorEdu, Recommendation, NannyBank);
+            
+            //bank
+            XElement BankNumber = new XElement("BankNumber", n.NannyBank.BankNumber);
+            XElement BankName = new XElement("BankName", n.NannyBank.BankName);
+            XElement BankBranch = new XElement("BankBranch", n.NannyBank.BankBranch);
+            XElement BankAdress = new XElement("BankAdress", n.NannyBank.BankAdress);
+            XElement NannyBank = new XElement("NannyBank", BankNumber, BankName, BankBranch, BankAdress);
+            XElement BankAccountNumber = new XElement("BankAccountNumber", n.BankAccountNumber);
+
+            return new XElement("Nanny", ID, FirstName, Lastname, Tel, Address, NannyD_of_B, IsElevator, YearsOfExperience, MaxKids, MinimunmAge, MaximumAge, RateforHour, RateforMonth, AvailableTime, IsBasedonTMTorEdu, Recommendation, NannyBank, BankAccountNumber);
         }
 
         XElement BuildXelementMother(Mother m)
         {
+            XElement ID = new XElement("ID", m.ID);
             XElement Lastname = new XElement("Lastname", m.Lastname);
             XElement FirstName = new XElement("FirstName", m.FirstName);
             XElement Tel = new XElement("Tel", m.Tel);
-            //Address
-            XElement Number = new XElement("Number", m.Address.Number);
-            XElement Street = new XElement("Street", m.Address.Street);
-            XElement City = new XElement("City", m.Address.City);
-            XElement ZipCode = new XElement("ZipCode", m.Address.ZipCode);
-            XElement Country = new XElement("Country", m.Address.Country);
-            XElement Address = new XElement("Address", Number, Street, City, ZipCode, Country);
-            //
+ 
+            XElement Address = BuildXelementAddress(m.Address);
+            
             XElement HomePhone = new XElement("HomePhone", m.HomePhone);
-            //BabbySitterAdress
-            XElement bNumber = new XElement("BabbySitterNumber", m.Address.Number);
-            XElement bStreet = new XElement("BabbySitterStreet", m.Address.Street);
-            XElement bCity = new XElement("BabbySitterCity", m.Address.City);
-            XElement bZipCode = new XElement("BabbySitterZipCode", m.Address.ZipCode);
-            XElement bCountry = new XElement("BabbySitterCountry", m.Address.Country);
-            XElement BabbySitterAdress = new XElement("BabbySitterAdress", bNumber, bStreet, bCity, bZipCode, bCountry);
-            //workHours
-            XElement s = new XElement(DayOfWeek.Sunday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Sunday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Sunday].Value));
-            XElement mo = new XElement(DayOfWeek.Monday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Monday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Monday].Value));
-            XElement t = new XElement(DayOfWeek.Tuesday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Tuesday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Tuesday].Value));
-            XElement w = new XElement(DayOfWeek.Wednesday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Wednesday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Wednesday].Value));
-            XElement th = new XElement(DayOfWeek.Thursday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Thursday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Thursday].Value));
-            XElement f = new XElement(DayOfWeek.Friday.ToString(),
-                new XElement("start", m.Workhours[DayOfWeek.Friday].Key),
-                new XElement("end", m.Workhours[DayOfWeek.Friday].Value));
-            XElement Workhours = new XElement("Workhours", s, m, t, w, th, f);
 
+            XElement BabbySitterAdress =  BuildXelementAddress(m.BabbySitterAdress);
+            //workHours
+            XElement Workhours = new XElement("Workhours",
+                from e in m.Workhours
+                select new XElement(e.Key.ToString(),
+                            new XElement("start", e.Value.Key),
+                            new XElement("end", e.Value.Value)));
+            //
             XElement MonthPayment = new XElement("IsElevator", m.MonthPayment);
 
-            return new XElement("Mother", FirstName, Lastname, Tel, Address, HomePhone, BabbySitterAdress, Workhours, MonthPayment);
+            return new XElement("Mother", ID, FirstName, Lastname, Tel, Address, HomePhone, BabbySitterAdress, Workhours, MonthPayment);
         }
         #endregion
 
         #region Build Object
+        Address BuildAddress(XElement a)
+        {
+            Address address = new Address();
+            //Address
+            address.Number = Convert.ToInt32(a.Element("Number").Value);
+            address.Street = a.Element("Street").Value;
+            address.City = a.Element("City").Value;
+            address.ZipCode = a.Element("ZipCode").Value;
+            address.Country = a.Element("Country").Value;
+            return address;
+        }
+        BankAccount BuildBankAccount(XElement b)
+        {
+            BankAccount bankAccount = new BankAccount();
+            bankAccount.BankNumber = Convert.ToInt32(b.Element("BankNumber").Value);
+            bankAccount.BankName = b.Element("BankName").Value;
+            bankAccount.BankBranch = Convert.ToInt32(b.Element("BankBranch").Value);
+            bankAccount.BankAdress = b.Element("BankAdress").Value;
+            return bankAccount;
+        }
+
+        BankAccount BuildBankAccountFromHebrew(XElement xe)
+        {
+            BankAccount ba = new BankAccount();
+            ba.BankName = xe.Element("שם_בנק").Value;
+            ba.BankNumber = Convert.ToInt32(xe.Element("קוד_בנק").Value);
+            ba.BankBranch = Convert.ToInt32(xe.Element("קוד_סניף").Value);
+            ba.BankAdress = xe.Element("ישוב").Value;
+            return ba;
+        }
+
         Contract BuildContract(XElement xc)
         {
             Contract c = new Contract();
@@ -272,14 +280,12 @@ namespace DAL
             c.RateforHour = Convert.ToInt32(xc.Element("RateforHour").Value);
             c.RateforMonth = Convert.ToInt32(xc.Element("RateforMonth").Value);
             c.IsMorechilds = Convert.ToBoolean(xc.Element("IsMorechilds").Value);
-            //c.WorkTime = Convert.ToInt32(xc.Element("WorkTime").Value);
             
             c.WorkTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>();
             foreach (var e in xc.Element("WorkTime").Elements())
             {
                 c.WorkTime[(DayOfWeek)Enum.Parse(typeof (DayOfWeek),e.Name.ToString())] = new KeyValuePair<int, int>(Convert.ToInt32(e.Element("start").Value), Convert.ToInt32(e.Element("end").Value));               
             }
-
 
             c.DateStart = Convert.ToDateTime(xc.Element("DateStart").Value);
             c.DateEnd = Convert.ToDateTime(xc.Element("DateEnd").Value);
@@ -303,14 +309,8 @@ namespace DAL
             n.Lastname = (xn.Element("Lastname").Value);
             n.FirstName = (xn.Element("FirstName").Value);
             n.Tel = (xn.Element("Tel").Value);
-            Address a = new Address();
-            //Address
-            a.Number = Convert.ToInt32(xn.Element("Number").Value);
-            a.Street = xn.Element("Street").Value;
-            a.City = xn.Element("City").Value;
-            a.ZipCode = xn.Element("ZipCode").Value;
-            a.Country = xn.Element("Country").Value;
-            n.Address = a;
+
+            n.Address = BuildAddress(xn.Element("Address"));
             //
             n.NannyD_of_B = Convert.ToDateTime(xn.Element("NannyD_of_B").Value);
             n.IsElevator = Convert.ToBoolean(xn.Element("IsElevator").Value);
@@ -320,10 +320,16 @@ namespace DAL
             n.MaximumAge = Convert.ToInt32(xn.Element("MaximumAge").Value);
             n.RateforHour = Convert.ToInt32(xn.Element("RateforHour").Value);
             n.RateforMonth = Convert.ToInt32(xn.Element("RateforMonth").Value);
-            //n.AvailableTime = (xn.Element("AvailableTime").Value);
+
+            n.AvailableTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>();
+            foreach (var e in xn.Element("AvailableTime").Elements())
+            {
+                n.AvailableTime[(DayOfWeek)Enum.Parse(typeof(DayOfWeek), e.Name.ToString())] = new KeyValuePair<int, int>(Convert.ToInt32(e.Element("start").Value), Convert.ToInt32(e.Element("end").Value));
+            }
+
             n.IsBasedonTMTorEdu = Convert.ToBoolean(xn.Element("IsBasedonTMTorEdu").Value);
             n.Recommendation = (xn.Element("Recommendation").Value);
-            //n.NannyBank = (xn.Element("NannyBank").Value);
+            n.NannyBank = BuildBankAccount(xn.Element("NannyBank"));
 
             return n;
         }
@@ -335,47 +341,16 @@ namespace DAL
             n.Lastname = (xm.Element("Lastname").Value);
             n.FirstName = (xm.Element("FirstName").Value);
             n.Tel = (xm.Element("Tel").Value);
-            Address a = new Address();
-            //Address
-            a.Number = Convert.ToInt32(xm.Element("Number").Value);
-            a.Street = xm.Element("Street").Value;
-            a.City = xm.Element("City").Value;
-            a.ZipCode = xm.Element("ZipCode").Value;
-            a.Country = xm.Element("Country").Value;
-            n.Address = a;
+            
+            n.Address = BuildAddress(xm.Element("Address"));
             //           
             n.HomePhone = (xm.Element("HomePhone").Value);
-            Address ab = new Address();
-            //Address
-            ab.Number = Convert.ToInt32(xm.Element("bNumber").Value);
-            ab.Street = xm.Element("bStreet").Value;
-            ab.City = xm.Element("bCity").Value;
-            ab.ZipCode = xm.Element("bZipCode").Value;
-            ab.Country = xm.Element("bCountry").Value;
-            n.BabbySitterAdress = ab;
+            
+            n.BabbySitterAdress = BuildAddress(xm.Element("BabbySitterAdress"));
             //
             //n.Workhours = (xn.Element("Workhours").Value);
             n.MonthPayment = Convert.ToBoolean(xm.Element("MonthPayment").Value);
             return n;
-        }
-
-
-        BankAccount BuildBankBranch(XElement xe)
-        {
-            BankAccount ba = new BankAccount();
-            ba.BankNumber = Convert.ToInt32(xe.Element("BankNumber").Value);
-            ba.BankName = (xe.Element("BankName").Value);
-            ba.BankBranch = Convert.ToInt32(xe.Element("BankBranch").Value);
-            Address a = new Address();
-            //Address
-            a.Number = Convert.ToInt32(xe.Element("Number").Value);
-            a.Street = xe.Element("Street").Value;
-            a.City = xe.Element("City").Value;
-            a.ZipCode = xe.Element("ZipCode").Value;
-            a.Country = xe.Element("Country").Value;
-            ba.BankAdress = a;
-            //            
-            return ba;
         }
 
         #endregion
@@ -459,7 +434,7 @@ namespace DAL
         public List<BankAccount> GetBankBranchs()
         {
             return (from v in BankAccounts.Elements()
-                    select BuildBankBranch(v)).ToList();
+                    select BuildBankAccountFromHebrew(v)).ToList();
         }
 
         public List<Contract> GetContract()
@@ -579,6 +554,8 @@ namespace DAL
             current.Element("NannyBank").Element("BankName").Value = Convert.ToString(n.NannyBank.BankName);
             current.Element("NannyBank").Element("BankBranch").Value = n.NannyBank.BankName;
             current.Element("NannyBank").Element("BankAdress").Value = Convert.ToString(n.NannyBank.BankBranch);
+            current.Element("BankAccountNumber").Value = Convert.ToString(n.BankAccountNumber);
+
             XElement a = new XElement(
             //Address
             new XElement("Number").Value= Convert.ToString(n.Address.Number),

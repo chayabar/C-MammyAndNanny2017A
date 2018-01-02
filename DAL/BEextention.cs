@@ -29,7 +29,8 @@ namespace DAL
                 AvailableTime = new Dictionary<DayOfWeek, KeyValuePair<int, int>>( source.AvailableTime),
                 IsBasedonTMTorEdu = source.IsBasedonTMTorEdu,
                 Recommendation = source.Recommendation,
-                NannyBank = source.NannyBank
+                NannyBank = source.NannyBank,
+                BankAccountNumber=source.BankAccountNumber
             };
             return nanny;
         }

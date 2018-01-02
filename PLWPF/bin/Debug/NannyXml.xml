@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Nannys>
   <Nanny>
+    <ID>208493965</ID>
     <FirstName>chaya</FirstName>
     <Lastname>bar</Lastname>
     <Tel>025800856</Tel>
-    <Address> Herzl 22,Jerusalem,Israel</Address>
+    <Address>
+      <Number>22</Number>
+      <Street>Herzl</Street>
+      <City>Jerusalem</City>
+      <ZipCode>Nj208</ZipCode>
+      <Country>Israel</Country>
+    </Address>
     <NannyD_of_B>1988-02-02T00:00:00</NannyD_of_B>
     <IsElevator>true</IsElevator>
     <YearsOfExperience>3</YearsOfExperience>
@@ -13,15 +20,40 @@
     <MaximumAge>24</MaximumAge>
     <RateforHour>30</RateforHour>
     <RateforMonth>5000</RateforMonth>
-    <AvailableTime>[Sunday, [600, 1900]][Monday, [600, 1900]][Tuesday, [700, 1900]][Wednesday, [700, 2000]][Thursday, [700, 1900]][Friday, [700, 1900]]</AvailableTime>
+    <AvailableTime>
+      <Sunday>
+        <start>600</start>
+        <end>1900</end>
+      </Sunday>
+      <Monday>
+        <start>600</start>
+        <end>1900</end>
+      </Monday>
+      <Tuesday>
+        <start>700</start>
+        <end>1900</end>
+      </Tuesday>
+      <Wednesday>
+        <start>700</start>
+        <end>2000</end>
+      </Wednesday>
+      <Thursday>
+        <start>700</start>
+        <end>1900</end>
+      </Thursday>
+      <Friday>
+        <start>700</start>
+        <end>1900</end>
+      </Friday>
+    </AvailableTime>
     <IsBasedonTMTorEdu>true</IsBasedonTMTorEdu>
     <Recommendation>good</Recommendation>
-    <NannyBank>Bank Account details:
----------------------
-Bank Number:0
-Bank Name:
-Bank Branch:0
-Bank Adress: beit hadfus 7,jerusalem,israel
-</NannyBank>
+    <NannyBank>
+      <BankNumber>0</BankNumber>
+      <BankName />
+      <BankBranch>0</BankBranch>
+      <BankAdress>jerusalem</BankAdress>
+    </NannyBank>
+    <BankAccountNumber>0</BankAccountNumber>
   </Nanny>
 </Nannys>

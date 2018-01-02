@@ -55,7 +55,10 @@ namespace BE
             foreach (var item in WorkTime)  //loop over days in week
             {
                 result += "day: " + item.Key + "   \t";
-                result += "hours " + (item.Value.Key)/100+":" + (item.Value.Key) % 100 + " - " + (item.Value.Value)/100+":" + (item.Value.Value) % 100+ '\n';
+                result += "hours " + ((((item.Value.Key) / 100) < 10) ? ("0") : (null)) + ((item.Value.Key) / 100);
+                result += ":" + ((((item.Value.Key) % 100) < 10) ? "0" : (null)) + (item.Value.Key) % 100 + " - ";
+                result += ((((item.Value.Value) / 100) < 10) ? ("0") : (null)) + (item.Value.Value) / 100;
+                result += ":" + ((((item.Value.Value) % 100) < 10) ? "0" : (null)) + (item.Value.Value) % 100 + '\n';
             }
             result += string.Format("Date of Start:{0}\n", DateStart.ToShortDateString());
             result += string.Format("Date of End: {0}\n", DateEnd.ToShortDateString());

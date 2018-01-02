@@ -78,14 +78,7 @@ namespace PLWPF
                 Recommendation = "good",
                 NannyBank = new BE.BankAccount
                 {
-                     BankAdress=new BE.Address
-                     {
-                          City="jerusalem",
-                           Country="israel",
-                            Number=7,
-                             Street="beit hadfus",
-                              ZipCode="234"
-                     }
+                     BankAdress="jerusalem"
                 }
             });
             bl.AddChild(new BE.Child

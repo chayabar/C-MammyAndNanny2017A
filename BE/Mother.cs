@@ -27,7 +27,10 @@ namespace BE
             foreach (var item in Workhours)
             {
                 result += "day: " + item.Key + "   \t";
-                result += "hours " + (item.Value.Key)/100+":" + (item.Value.Key) % 100 + " - " + (item.Value.Value)/100+":" + (item.Value.Value) % 100+ '\n';
+                result += "hours " + ((((item.Value.Key) / 100) < 10) ? ("0") : (null)) + ((item.Value.Key) / 100);
+                result += ":" + ((((item.Value.Key) % 100) < 10) ? "0" : (null)) + (item.Value.Key) % 100 + " - ";
+                result += ((((item.Value.Value) / 100) < 10) ? ("0") : (null)) + (item.Value.Value) / 100;
+                result += ":" + ((((item.Value.Value) % 100) < 10) ? "0" : (null)) + (item.Value.Value) % 100 + '\n';
             }
             result += "Is Weekly payment? " + MonthPayment;
             return result;

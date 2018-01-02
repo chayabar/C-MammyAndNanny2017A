@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mothers>
   <Mother>
+    <ID>123</ID>
     <FirstName>Imeinu</FirstName>
     <Lastname>Sarah</Lastname>
     <Tel>01233477</Tel>
@@ -12,32 +13,39 @@
       <Country>Israel</Country>
     </Address>
     <HomePhone>67767678</HomePhone>
-    <BabbySitterAdress>
-      <BabbySitterNumber>11</BabbySitterNumber>
-      <BabbySitterStreet>beit hadfus</BabbySitterStreet>
-      <BabbySitterCity>Jerusalem</BabbySitterCity>
-      <BabbySitterZipCode>208</BabbySitterZipCode>
-      <BabbySitterCountry>Israel</BabbySitterCountry>
-    </BabbySitterAdress>
+    <Address>
+      <Number>11</Number>
+      <Street>beit hadfus</Street>
+      <City>Jerusalem</City>
+      <ZipCode>208</ZipCode>
+      <Country>Israel</Country>
+    </Address>
     <Workhours>
       <Sunday>
         <start>700</start>
         <end>1900</end>
-      </Sunday>First Name:Imeinu
-Last name:Sarah
-ID:123
-Phone number:01233477
-Address: beit hadfus 11,Jerusalem,Israel
-Phone of home: 67767678
-Required place:  beit hadfus 11,Jerusalem,Israel
-Required Work hours:
-day: Sunday   	hours 7:0 - 19:0
-day: Monday   	hours 7:0 - 19:0
-day: Tuesday   	hours 7:0 - 19:0
-day: Wednesday   	hours 7:0 - 19:0
-day: Thursday   	hours 7:0 - 19:0
-day: Friday   	hours 7:0 - 19:0
-Is Weekly payment? False<Tuesday><start>700</start><end>1900</end></Tuesday><Wednesday><start>700</start><end>1900</end></Wednesday><Thursday><start>700</start><end>1900</end></Thursday><Friday><start>700</start><end>1900</end></Friday></Workhours>
+      </Sunday>
+      <Monday>
+        <start>700</start>
+        <end>1900</end>
+      </Monday>
+      <Tuesday>
+        <start>700</start>
+        <end>1900</end>
+      </Tuesday>
+      <Wednesday>
+        <start>700</start>
+        <end>1900</end>
+      </Wednesday>
+      <Thursday>
+        <start>700</start>
+        <end>1900</end>
+      </Thursday>
+      <Friday>
+        <start>700</start>
+        <end>1900</end>
+      </Friday>
+    </Workhours>
     <IsElevator>false</IsElevator>
   </Mother>
 </Mothers>

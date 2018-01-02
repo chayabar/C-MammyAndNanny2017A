@@ -165,14 +165,7 @@ namespace DAL
             List<BankAccount> BankBranchs = new List<BankAccount>();
             BankAccount b = new BankAccount
             {
-                BankAdress = new BE.Address
-                {
-                    City = "jerusalem",
-                    Country = "israel",
-                    Number = 7,
-                    Street = "beit hadfus",
-                    ZipCode = "234"
-                },
+                BankAdress = "jerusalem",
                 BankBranch = 123,
                 BankName = "mercantil",
                 BankNumber = 19

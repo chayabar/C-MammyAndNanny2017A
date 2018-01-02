@@ -20,6 +20,7 @@ namespace BE
         public bool IsBasedonTMTorEdu { get; set; }
         public string Recommendation { get; set; }
         public BankAccount NannyBank { get; set; }
+        public int BankAccountNumber { get; set; }
         public override string ToString()
         {
             string result = "Nunny details:\n";
@@ -38,13 +39,17 @@ namespace BE
                 foreach (var item in AvailableTime)
                 {
                     result += "day: " + item.Key + "   \t";
-                    result += "hours " + (item.Value.Key) / 100 + ":" + (item.Value.Key) % 100 + " - " + (item.Value.Value) / 100 + ":" + (item.Value.Value) % 100 + '\n';
+                    result += "hours " + ((((item.Value.Key) / 100) < 10) ? ("0") : (null)) + ((item.Value.Key) / 100);
+                    result += ":" + ((((item.Value.Key) % 100) < 10) ? "0" : (null)) + (item.Value.Key) % 100 + " - ";
+                    result += ((((item.Value.Value) / 100) < 10) ? ("0") : (null)) + (item.Value.Value) / 100;
+                    result += ":" + ((((item.Value.Value) % 100) < 10) ? "0" : (null)) + (item.Value.Value) % 100 + '\n';
                 }
             }
             result += string.Format("Is days off based on Tamat or Ministry of Education ?: {0}\n", IsBasedonTMTorEdu);
             result += string.Format("Is nanny have elevator? {0} \n", IsElevator);
             result += string.Format("Recommendation: {0}\n", Recommendation);
-            result += string.Format("details of Nanny Bank: {0}\n", NannyBank.ToString());
+            result += string.Format("{0}\n", NannyBank.ToString());
+            result += string.Format("Bank Account Number: {0}\n", BankAccountNumber);
             return result;
         }
     }

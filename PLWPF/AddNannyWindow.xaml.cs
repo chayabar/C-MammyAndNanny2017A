@@ -31,9 +31,9 @@ namespace PLWPF
             bl = FactoryBL.getBL();
             this.grid1.DataContext = nanny;
             this.BankNameComboBox.ItemsSource = from z in bl.GetBankBranchs()
-                                          select z;
+                                          select z.BankName;
             this.BankBranchComboBox.ItemsSource = from z in bl.GetBankBranchs()
-                                                select z;
+                                                select z.BankBranch;
         }
         public void BankNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

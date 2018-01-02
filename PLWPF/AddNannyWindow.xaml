@@ -41,6 +41,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
             </Grid.RowDefinitions>
             <Label Content="First Name:" Grid.Column="0"  Margin="3" Grid.Row="0" />
             <TextBox x:Name="firstNameTextBox" Grid.Column="1" Margin="3" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
@@ -76,11 +78,12 @@
             <Label Content="Max Kids:" Grid.Column="0"  Margin="3" Grid.Row="19" />
             <TextBox x:Name="maxKidsTextBox" Grid.Column="1"  Margin="3" Grid.Row="19" Text="{Binding MaxKids, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <Label Content="Account Number:" Grid.Column="0"  Margin="3" Grid.Row="20" />
-            <TextBox x:Name="accountNumberTextBox" Grid.Column="1" Margin="3" Grid.Row="20" Text="{Binding NannyBank.AccountNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
+            <TextBox x:Name="accountNumberTextBox" Grid.Column="1" Margin="3" Grid.Row="20" Text="{Binding AccountNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  />
             <Label Content="Bank Name:" Grid.Column="0"  Margin="3" Grid.Row="21" />
             <ComboBox x:Name="BankNameComboBox"  Grid.Column="1" Margin="3" Grid.Row="21" SelectionChanged="BankNameComboBox_SelectionChanged" ItemsSource="{Binding BankName}"/>
             <Label Content="Bank Branch:" Grid.Column="0"  Margin="3" Grid.Row="22" />
             <ComboBox x:Name="BankBranchComboBox"  Grid.Column="1" Margin="3" Grid.Row="22" SelectionChanged="BankBranchComboBox_SelectionChanged" ItemsSource="{Binding BankBranch}"/>
+         
             <Label Content="Available time" Grid.Column="0"  Margin="3" Grid.Row="23" />
             <Button x:Name="Edit" Content="Edit" Grid.Column="1"  Margin="3" Grid.Row="23" Click="Edit_Click"/>
             <Button x:Name="AddNanny" Content="Add"  Margin="3" Grid.Row="24" Grid.ColumnSpan="2" Click="AddNannyButton_Click"/>
